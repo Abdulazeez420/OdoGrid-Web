@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Deletion — OdoGrid</title>
+  <meta name="description" content="OdoGrid Data Deletion Instructions — how to delete your personal data from the OdoGrid app." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://odogrid.com/data-deletion/" />
+
+  <link rel="icon" href="/assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/circle_splash.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/circle_splash.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    body { background: var(--bg-dark); }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .dd-hero {
+      background: linear-gradient(135deg, #0D0D0D 0%, #0F1B2D 100%);
+      padding: 140px 24px 80px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dd-hero-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .dd-hero-logo img {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(79,142,247,0.35);
+    }
+    .dd-hero-logo span { font-size: 22px; font-weight: 700; }
+    .dd-hero h1 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 14px; }
+    .dd-hero-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+    .dd-hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .dd-hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,142,247,0.08);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: var(--radius-pill);
+      padding: 7px 18px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Layout ───────────────────────────────────────────── */
+    .dd-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── Sticky sidebar TOC ───────────────────────────────── */
+    .dd-toc { position: sticky; top: 88px; }
+    .dd-toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .dd-toc ul { display: flex; flex-direction: column; gap: 4px; }
+    .dd-toc ul li a {
+      display: block;
+      padding: 7px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      border-left: 2px solid transparent;
+      transition: color var(--transition), background var(--transition), border-color var(--transition);
+    }
+    .dd-toc ul li a:hover,
+    .dd-toc ul li a.active {
+      color: var(--primary);
+      background: rgba(79,142,247,0.08);
+      border-left-color: var(--primary);
+    }
+
+    /* ── Article ──────────────────────────────────────────── */
+    .dd-article { min-width: 0; }
+
+    .dd-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 100px;
+    }
+    .dd-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dd-section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(79,142,247,0.12);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .dd-section h2 { font-size: 20px; font-weight: 700; }
+    .dd-section p,
+    .dd-section li {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .dd-section p + p { margin-top: 12px; }
+    .dd-section ul,
+    .dd-section ol { padding-left: 22px; margin-top: 12px; }
+    .dd-section li { margin-bottom: 8px; }
+
+    /* ── Steps list ───────────────────────────────────────── */
+    .dd-steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0 !important;
+      margin-top: 16px;
+    }
+    .dd-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .dd-steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* ── Service cards ────────────────────────────────────── */
+    .dd-services { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+    .dd-service {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .dd-service-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .dd-service p { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .dd-service a { color: var(--primary); text-decoration: underline; }
+    .dd-service a:hover { color: #fff; }
+
+    /* ── Badge chips ──────────────────────────────────────── */
+    .chip-recommended {
+      display: inline-block;
+      background: rgba(48,209,88,0.12);
+      color: #30d158;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Warning box ──────────────────────────────────────── */
+    .dd-warn {
+      background: rgba(255,159,10,0.07);
+      border: 1px solid rgba(255,159,10,0.22);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+    .dd-warn p { font-size: 14px; color: #ffaa33; }
+
+    /* ── Contact block ────────────────────────────────────── */
+    .dd-contact-box {
+      background: rgba(79,142,247,0.06);
+      border: 1px solid rgba(79,142,247,0.18);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+    .dd-contact-box p { font-size: 15px; }
+    .dd-contact-box a { color: var(--primary); font-weight: 600; text-decoration: underline; }
+
+    /* ── Back link ────────────────────────────────────────── */
+    .dd-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      margin-bottom: 32px;
+    }
+    .dd-back:hover { color: var(--primary); }
+
+    code {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.88em;
+      color: var(--text-primary);
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .dd-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .dd-toc {
+        position: static;
+        background: var(--surface-dark);
+        border-radius: var(--radius-card);
+        padding: 20px 24px;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     NAVIGATION BAR
+     ========================================================= -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="OdoGrid home">
+      <img src="/assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+      OdoGrid
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/privacy-policy/" class="nav-privacy-link">Privacy Policy</a>
+      <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+         class="btn-get-app"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Get OdoGrid on Google Play">Get the App</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="/#features"    onclick="closeMobileMenu()">Features</a>
+  <a href="/#about"       onclick="closeMobileMenu()">About</a>
+  <a href="/#contact"     onclick="closeMobileMenu()">Contact</a>
+  <a href="/privacy-policy/" onclick="closeMobileMenu()">Privacy Policy</a>
+  <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+     class="btn btn-primary"
+     target="_blank"
+     rel="noopener noreferrer">Get the App</a>
+</div>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<div class="dd-hero">
+  <div class="dd-hero-logo">
+    <img src="/assets/logo.png" alt="OdoGrid app icon" />
+    <span>OdoGrid</span>
+  </div>
+  <h1>Data Deletion</h1>
+  <p class="dd-hero-meta">Last updated: May 2026 &nbsp;·&nbsp; How to delete your personal data from OdoGrid</p>
+  <div class="dd-hero-badges">
+    <span class="dd-hero-badge">📴 100% Offline-First</span>
+    <span class="dd-hero-badge">🔒 AES-256 Encrypted</span>
+    <span class="dd-hero-badge">🗑️ Full Deletion Available</span>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     LAYOUT: TOC + ARTICLE
+     ========================================================= -->
+<div class="dd-layout">
+
+  <!-- Sidebar TOC -->
+  <aside class="dd-toc" aria-label="Table of contents">
+    <p class="dd-toc-title">On this page</p>
+    <ul role="list">
+      <li><a href="#dd-architecture" class="toc-link">1. How Data Is Stored</a></li>
+      <li><a href="#dd-inapp"        class="toc-link">2. Delete In-App</a></li>
+      <li><a href="#dd-uninstall"    class="toc-link">3. Uninstall the App</a></li>
+      <li><a href="#dd-firebase"     class="toc-link">4. Firebase Analytics</a></li>
+      <li><a href="#dd-contact"      class="toc-link">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Article -->
+  <article class="dd-article">
+
+    <a href="/" class="dd-back">← Back to OdoGrid</a>
+
+    <!-- 1. Architecture -->
+    <section class="dd-section" id="dd-architecture">
+      <div class="dd-section-header">
+        <span class="dd-section-num">1</span>
+        <h2>How OdoGrid Stores Your Data</h2>
+      </div>
+      <p>
+        OdoGrid is an <strong>offline-first</strong> application. All personal
+        data you enter — vehicles, fuel logs, maintenance records, expenses,
+        trips, and documents — is stored <strong>exclusively on your device</strong>
+        in a locally-encrypted database (Isar with AES-256 encryption).
+      </p>
+      <p>
+        OdoGrid does <strong>not</strong> operate its own backend server or
+        cloud database. The only external services used are:
+      </p>
+      <div class="dd-services">
+        <div class="dd-service">
+          <p class="dd-service-name">Firebase Analytics &amp; Crashlytics</p>
+          <p>Anonymous crash reports and aggregate usage statistics. No personal vehicle or financial data is included.</p>
+        </div>
+        <div class="dd-service">
+          <p class="dd-service-name">Google Drive / Dropbox (optional)</p>
+          <p>Encrypted backup files uploaded by you, stored in <em>your own</em> cloud account. OdoGrid never has access to your cloud credentials or backup files.</p>
+        </div>
+        <div class="dd-service">
+          <p class="dd-service-name">Google AdMob</p>
+          <p>Serves contextual ads for free-tier users, governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. In-app deletion -->
+    <section class="dd-section" id="dd-inapp">
+      <div class="dd-section-header">
+        <span class="dd-section-num">2</span>
+        <h2>Delete Your Data — In-App Method <span class="chip-recommended">Recommended</span></h2>
+      </div>
+      <p>
+        Because your data lives on your device, the fastest and most complete
+        way to delete it is directly inside the app:
+      </p>
+      <ol class="dd-steps">
+        <li>Open <strong>OdoGrid</strong> on your Android device.</li>
+        <li>Tap the <strong>☰ menu</strong> (hamburger icon) in the top-left corner to open the navigation drawer.</li>
+        <li>Tap <strong>Privacy &amp; Data</strong>.</li>
+        <li>Scroll down and tap <strong>Wipe Data</strong> (or <strong>Delete All Data</strong>).</li>
+        <li>Confirm the deletion when prompted.</li>
+      </ol>
+      <div class="dd-warn">
+        <p>⚠️ This permanently erases <em>all</em> locally stored data: vehicles, fuel records, maintenance tasks, expenses, trips, documents, and settings. The action is <strong>irreversible</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 3. Uninstall -->
+    <section class="dd-section" id="dd-uninstall">
+      <div class="dd-section-header">
+        <span class="dd-section-num">3</span>
+        <h2>Alternative: Uninstall the App</h2>
+      </div>
+      <p>
+        Uninstalling OdoGrid from your device removes all locally stored data.
+        On Android, go to <strong>Settings → Apps → OdoGrid → Uninstall</strong>.
+      </p>
+      <p>
+        If you previously enabled a <strong>Google Drive or Dropbox backup</strong>,
+        the encrypted backup file will remain in your personal cloud storage
+        until you delete it manually from within those services.
+      </p>
+    </section>
+
+    <!-- 4. Firebase -->
+    <section class="dd-section" id="dd-firebase">
+      <div class="dd-section-header">
+        <span class="dd-section-num">4</span>
+        <h2>Firebase Analytics &amp; Crashlytics Data</h2>
+      </div>
+      <p>
+        Anonymous analytics events and crash reports processed via Firebase
+        are associated with a randomly-generated installation ID — not your
+        name, email, or any personal data. This data is retained per
+        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google's data retention policy</a>.
+      </p>
+      <p>
+        To request deletion of any Firebase analytics data linked to your
+        installation, contact us at the email below with the subject line
+        <code>Firebase Analytics Deletion Request</code> and include your
+        approximate device model and the date you installed OdoGrid.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section class="dd-section" id="dd-contact">
+      <div class="dd-section-header">
+        <span class="dd-section-num" style="background:rgba(48,209,88,0.12);color:#30d158;">✉</span>
+        <h2>Contact Us</h2>
+      </div>
+      <p>For data deletion requests, privacy questions, or any other concerns:</p>
+      <div class="dd-contact-box">
+        <p>Email us at <a href="mailto:supportodogrid@gmail.com">supportodogrid@gmail.com</a></p>
+        <p style="margin-top:10px;color:var(--text-secondary);font-size:14px;">We aim to respond within <strong style="color:var(--text-primary);">7 business days</strong>.</p>
+      </div>
+    </section>
+
+  </article>
+</div><!-- /.dd-layout -->
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+    <p class="footer-copy">
+      &copy; 2026 OdoGrid &nbsp;·&nbsp;
+      <a href="/privacy-policy/">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="/data-deletion/" aria-current="page">Data Deletion</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>

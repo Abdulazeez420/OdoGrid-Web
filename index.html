@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OdoGrid — Smart Vehicle Management App</title>
+  <meta name="description" content="Track fuel, maintenance, trips, and expenses in one offline-first app. Get tax-ready reports, encrypted local storage, and on-device insights for Android." />
+  <meta property="og:title" content="OdoGrid — Drive Smarter" />
+  <meta property="og:description" content="Encrypted vehicle tracker. Fuel logs, maintenance reminders, tax trip reports, and cloud backup — all offline, all private." />
+  <meta property="og:image" content="/assets/og-preview.png" />
+  <meta name="theme-color" content="#4F8EF7" />
+
+  <!-- Favicon setup -->
+  <link rel="icon" href="/assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/circle_splash.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/circle_splash.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- =========================================================
+     NAVIGATION BAR
+     ========================================================= -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="#hero" class="nav-logo" aria-label="OdoGrid home">
+      <img src="assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+      OdoGrid
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="/privacy-policy/" class="nav-privacy-link">Privacy Policy</a>
+      <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+         class="btn-get-app"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Get OdoGrid on Google Play">Get the App</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="#features"      onclick="closeMobileMenu()">Features</a>
+  <a href="#about"         onclick="closeMobileMenu()">About</a>
+  <a href="#contact"       onclick="closeMobileMenu()">Contact</a>
+  <a href="/privacy-policy/" onclick="closeMobileMenu()">Privacy Policy</a>
+  <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+     class="btn btn-primary"
+     target="_blank"
+     rel="noopener noreferrer">Get the App</a>
+</div>
+
+
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+<section id="hero" aria-label="Hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-inner">
+    <!-- Left column -->
+    <div class="hero-content">
+      <div class="hero-badge" aria-label="Smart Vehicle Management · On-Device AI Insights">
+        <img src="assets/logo.png" alt="" aria-hidden="true" width="20" height="20" style="border-radius:4px;" />&nbsp;&nbsp;Smart Vehicle Management · On-Device AI Insights
+      </div>
+
+      <h1 class="hero-title">
+        Drive Smarter.<br>
+        Track Everything.<br>
+        Save More.
+      </h1>
+
+      <p class="hero-sub">
+        Your all-in-one offline-first co-pilot for vehicle costs.
+        Log fuel, maintenance, trips, and expenses in seconds,
+        then export tax-ready reports with data encrypted on your device.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+           class="btn btn-primary"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Download OdoGrid on Google Play">
+          ▶&nbsp; Get it on Google Play
+        </a>
+        <a href="#features" class="btn btn-ghost">Explore Features ↓</a>
+      </div>
+
+      <div class="hero-trust" aria-label="Trust highlights">
+        <span class="hero-trust-item"><img src="assets/data-security.png" alt="" aria-hidden="true" width="18" height="18" style="object-fit:contain;" /> Encrypted on-device</span>
+        <span class="hero-trust-item"><img src="assets/offline.png" alt="" aria-hidden="true" width="18" height="18" style="object-fit:contain;" /> 100% Offline</span>
+        <span class="hero-trust-item">🌙 Light &amp; Dark Mode</span>
+        <span class="hero-trust-item">📱 Edge-to-Edge Display</span>
+      </div>
+    </div>
+
+    <!-- Right column — phone mockup -->
+    <div class="hero-phone" aria-hidden="true">
+      <div class="phone-wrapper">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span>9:41</span><span>●●●</span>
+            </div>
+            <div class="streak-badge">🔥 12 Day Streak</div>
+            <div class="phone-header">OdoGrid</div>
+            <div class="phone-card-mock">
+              <div class="phone-card-title">TOTAL SPENT THIS MONTH</div>
+              <div class="phone-card-value">₦182,400</div>
+              <div class="phone-card-sub">↑ 8% vs last month</div>
+            </div>
+            <div class="phone-chart-area">
+              <div style="font-size:10px;color:var(--text-secondary);margin-bottom:8px;">Monthly Spending</div>
+              <div class="phone-chart-bars">
+                <div class="phone-bar" style="height:40%"></div>
+                <div class="phone-bar" style="height:60%"></div>
+                <div class="phone-bar" style="height:45%"></div>
+                <div class="phone-bar" style="height:80%"></div>
+                <div class="phone-bar" style="height:55%"></div>
+                <div class="phone-bar" style="height:70%"></div>
+                <div class="phone-bar" style="height:100%;opacity:1"></div>
+              </div>
+            </div>
+            <div class="phone-card-mock" style="margin-top:8px;background:rgba(79,142,247,0.08);border-color:rgba(79,142,247,0.2)">
+              <div class="phone-card-title" style="color:var(--success)">NEXT SERVICE DUE</div>
+              <div style="font-size:12px;font-weight:600;">Oil Change · in 320 km</div>
+            </div>
+            <div class="phone-card-mock" style="margin-top:8px;background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2)">
+              <div class="phone-card-title" style="color:#0EA5E9;">NET PROFIT THIS MONTH</div>
+              <div style="font-size:12px;font-weight:700;color:#0EA5E9;">₦ +24,600</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     3. KEY FEATURES OVERVIEW
+     ========================================================= -->
+<section id="features" class="section section--dark" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="features-header fade-up">
+      <span class="label-pill">EVERYTHING YOU NEED</span>
+      <h2 id="features-heading">Complete Vehicle Intelligence in One App.</h2>
+      <p>From daily fill-ups to year-end tax reports, OdoGrid keeps every record in one secure place.</p>
+    </div>
+
+    <div class="features-grid">
+      <article class="card feature-card fade-up">
+        <img src="assets/gas-station.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Fuel &amp; Charging Tracker</h4>
+        <p>Log every fill-up with auto-calculated totals, GPS station detection, and OCR receipt scanning. Tracks km/L, L/100km, and MPG.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.1s">
+        <img src="assets/service-management.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Maintenance Scheduler</h4>
+        <p>Schedule oil changes, tyre rotations and more by date or mileage. Get notified before they're overdue. Log parts vs. labour costs separately.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.2s">
+        <img src="assets/divestiture.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Spending Analytics</h4>
+        <p>Navigate month-by-month with interactive &lt; April 2026 &gt; controls. Filter by vehicle or view all combined — charts, totals, and breakdowns update instantly.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.3s">
+        <img src="assets/tax.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Tax &amp; Trip Logging</h4>
+        <p>Record business vs personal trips. Generate a professional PDF Tax Deduction Report per vehicle, complete with driver name and deductible distance.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.4s">
+        <img src="assets/data-security.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Privacy-First Security</h4>
+        <p>AES-256 encrypted Isar database backed by hardware-backed OS keys. Your data never leaves your device unless you explicitly export it.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.5s">
+        <img src="assets/backup.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Cloud Backup &amp; Restore</h4>
+        <p>Serverless sync to Google Drive and Dropbox. Auto-backup on a schedule you choose — daily, weekly, or monthly. Runs silently in the background.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.6s">
+        <img src="assets/documents.svg" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Document Expiry Vault</h4>
+        <p>Store Driving Licence, Insurance, PUC, Fitness Certificate and more. Colour-coded expiry badges and push notifications at 30 d, 7 d, and 1 d before expiry.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.7s">
+        <img src="assets/divestiture.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Shift Mode &amp; Net Profit</h4>
+        <p>Start and end gig-economy shifts from the Dashboard. Log shift earnings alongside costs to see your real net profit per shift and per month.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.8s">
+        <img src="assets/tax.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>Fleet Data &amp; Annual Reports</h4>
+        <p>Export and import cross-vehicle data as versioned JSON. Generate a Fleet Performance PDF with per-vehicle earnings, fuel cost, and net profit breakdown.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     4. DEEP-DIVE 1 — FUEL & CHARGING
+     ========================================================= -->
+<section class="deep-dive" aria-labelledby="fuel-heading">
+  <div class="dive-inner">
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:14px;">Fuel Logs</div>
+          <div class="mock-list">
+            <div class="mock-item">
+              <div class="mock-item-title">Total Petroleum · Allen Ave</div>
+              <div class="mock-item-sub">47.5 L · ₦28,500 · 12 km/L <span class="mock-item-badge badge-green">Efficient</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">MRS Petrol · Ikeja</div>
+              <div class="mock-item-sub">40.0 L · ₦24,000 · 11.2 km/L <span class="mock-item-badge badge-blue">Normal</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Conoil · Victoria Island</div>
+              <div class="mock-item-sub">52.0 L · ₦31,200 · 13.1 km/L <span class="mock-item-badge badge-green">Efficient</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Mobil · Lekki</div>
+              <div class="mock-item-sub">35.0 L · ₦21,000 · 10.8 km/L <span class="mock-item-badge badge-orange">Low</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dive-content fade-up">
+      <h3 id="fuel-heading">Never Miss a Fill-Up Detail</h3>
+      <p>
+        Log petrol, diesel, electric charging, and hybrid refuels in seconds.
+        OdoGrid auto-calculates your total cost while you type and
+        tracks your fuel efficiency (km/L, L/100km, MPG) across every tank.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Auto-calculated total — edit quantity or price, the other updates instantly</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>GPS "Detect Location" auto-tags your current fuel station</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>OCR receipt scanner — point camera at receipt, values fill in automatically</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Full Fuel Economy history with efficiency trend graph</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Supports Litres, Gallons, and kWh for EVs</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     5. DEEP-DIVE 2 — MAINTENANCE & EXPENSES
+     ========================================================= -->
+<section class="deep-dive deep-dive--alt" aria-labelledby="maintenance-heading">
+  <div class="dive-inner dive-inner--rev">
+    <div class="dive-content fade-up">
+      <h3 id="maintenance-heading">Stay Ahead of Every Service Interval</h3>
+      <p>
+        Schedule tasks by date or odometer distance. Get push notifications
+        before your next oil change, tyre rotation, or service is due.
+        Split repair costs into parts and labour for accurate record-keeping.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Date-based and mileage-based reminders</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Parts vs. labour cost breakdown per job</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>General expense tracking: Insurance, Parking, Tolls, Fines</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Category filtering for monthly expense summaries</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Auto-synced odometer — every log keeps your mileage current</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Edit any task in-place — tap the 3-dot menu and choose Edit to update details without losing history</li>
+      </ul>
+    </div>
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:14px;">Maintenance</div>
+          <div class="mock-list">
+            <div class="mock-item">
+              <div class="mock-item-title">Oil Change</div>
+              <div class="mock-item-sub">Due in 320 km · ₦15,000 total <span class="mock-item-badge badge-orange">Due Soon</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Tyre Rotation</div>
+              <div class="mock-item-sub">Due Apr 15 · ₦8,500 <span class="mock-item-badge badge-blue">Scheduled</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Brake Pad Check</div>
+              <div class="mock-item-sub">Due in 2,000 km <span class="mock-item-badge badge-green">On Track</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Air Filter</div>
+              <div class="mock-item-sub">Completed Mar 10 <span class="mock-item-badge badge-green">Done</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     6. DEEP-DIVE 3 — TAX & TRIPS
+     ========================================================= -->
+<section class="deep-dive" aria-labelledby="trips-heading">
+  <div class="dive-inner">
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:14px;">Trip Logs</div>
+          <div class="mock-list">
+            <div class="mock-item">
+              <div class="mock-item-title">Client Visit · Ikeja</div>
+              <div class="mock-item-sub">48 km · Mar 22 <span class="mock-item-badge badge-blue">Business</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Weekend Drive</div>
+              <div class="mock-item-sub">120 km · Mar 20 <span class="mock-item-badge badge-orange">Personal</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Warehouse Delivery</div>
+              <div class="mock-item-sub">65 km · Mar 18 <span class="mock-item-badge badge-blue">Business</span></div>
+            </div>
+          </div>
+          <div style="margin-top:14px;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.2);border-radius:10px;padding:12px;">
+            <div style="font-size:10px;color:var(--text-secondary);">2026 TAX DEDUCTIBLE</div>
+            <div style="font-size:18px;font-weight:800;color:var(--primary);">1,240 km</div>
+            <div style="font-size:10px;color:var(--success);margin-top:2px;">Generate PDF Report ›</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dive-content fade-up">
+      <h3 id="trips-heading">Log Trips. Claim Every Kilometre.</h3>
+      <p>
+        Mark each trip as business or personal. At tax time, generate a
+        professionally formatted PDF Tax Deduction Report — complete with
+        your vehicle details, total deductible distance, and cost breakdown.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Business vs. personal trip classification</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Auto-calculated distance from odometer readings</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>One-tap PDF export for accountants or self-assessment</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Built-in Tax Calculator — estimate deductible expenses by business-use %</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Mileage Calculator — km/L, L/100km, MPG UK, cost per 100 km</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Shift Earnings</strong> — log earnings per shift and track real net profit (earnings − costs) on the Dashboard</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Fleet Performance PDF</strong> — cross-vehicle report with shifts, fuel cost, earnings &amp; net profit per vehicle</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     6B. DEEP-DIVE 4 — AI INTELLIGENCE SPOTLIGHT
+     ========================================================= -->
+<section class="deep-dive deep-dive--alt" aria-labelledby="ai-heading">
+  <div class="dive-inner">
+    <div class="dive-content fade-up">
+      <span class="label-pill">ON-DEVICE AI INSIGHTS</span>
+      <h3 id="ai-heading">Practical Insights, Fully On-Device</h3>
+      <p>
+        OdoGrid evaluates your recent logs locally using a deterministic
+        rule engine. No external AI API calls, no cloud dependency, and no vehicle
+        data leaving your device to generate insights.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Fuel Efficiency Alerts</strong> — detects meaningful drops versus your recent baseline</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Maintenance Risk Detection</strong> — highlights overdue and near-due tasks before they become expensive</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Spending Pattern Analysis</strong> — flags unusual cost spikes and where to save</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Business Trip Intelligence</strong> — summarizes mileage trends to support tax planning</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Fast Unlock Flow</strong> — run full assistant analysis via rewarded ad, with instant fallback if ad load fails</li>
+      </ul>
+    </div>
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:12px;">AI Assistant</div>
+          <div class="ai-chat">
+            <div class="ai-msg ai-msg--bot">⚠️ Fuel efficiency dropped 18% this week. Possible cause: low tyre pressure. Check all 4 tyres.</div>
+            <div class="ai-msg ai-msg--user">Analyse Toyota Camry 2022</div>
+            <div class="ai-msg ai-msg--bot">💡 You spent 23% more on fuel than last month. Switching to off-peak refuels could save ~₦4,200/month.</div>
+          </div>
+          <div style="margin-top:10px;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.2);border-radius:10px;padding:10px;">
+            <div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">MAINTENANCE ALERT</div>
+            <div style="font-size:11px;font-weight:600;">Oil change overdue by 120 km</div>
+          </div>
+          <div style="margin-top:8px;background:rgba(79,142,247,0.06);border:1px solid rgba(79,142,247,0.15);border-radius:10px;padding:10px;">
+            <div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">INSIGHT TYPES</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span style="background:#FF3B30;border-radius:6px;padding:4px 8px;font-size:9px;font-weight:700;color:#fff;">ALERT</span>
+              <span style="background:var(--success);border-radius:6px;padding:4px 8px;font-size:9px;font-weight:700;color:#000;">GOOD</span>
+              <span style="background:var(--primary);border-radius:6px;padding:4px 8px;font-size:9px;font-weight:700;">SUGGESTION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     7. PRIVACY & SECURITY
+     ========================================================= -->
+<section id="privacy-section" aria-labelledby="privacy-sec-heading">
+  <img src="assets/data-security.png" class="privacy-lock" alt="" aria-hidden="true" />
+  <h2 id="privacy-sec-heading">Your Data. Your Device. Always.</h2>
+  <p class="section-sub text-muted">
+    OdoGrid stores everything encrypted on your phone using AES-256
+    hardware-backed keys. No account required. No server. No tracking
+    of your vehicle data — ever.
+  </p>
+
+  <div class="privacy-stats" role="list">
+    <div class="privacy-stat-card card fade-up" role="listitem">
+      <div class="privacy-stat-icon" aria-hidden="true"><img src="assets/reset-password.png" alt="" width="48" height="48" style="object-fit:contain;" /></div>
+      <div class="privacy-stat-value">AES-256</div>
+      <div class="privacy-stat-label">Hardware-backed encryption</div>
+    </div>
+    <div class="privacy-stat-card card fade-up" style="transition-delay:0.1s" role="listitem">
+      <div class="privacy-stat-icon" aria-hidden="true"><img src="assets/offline.png" alt="" width="48" height="48" style="object-fit:contain;" /></div>
+      <div class="privacy-stat-value">100% Offline</div>
+      <div class="privacy-stat-label">No internet needed to use the app</div>
+    </div>
+    <div class="privacy-stat-card card fade-up" style="transition-delay:0.2s" role="listitem">
+      <div class="privacy-stat-icon" aria-hidden="true"><img src="assets/bug-report.png" alt="" width="48" height="48" style="object-fit:contain;" /></div>
+      <div class="privacy-stat-value">No vehicle telemetry</div>
+      <div class="privacy-stat-label">Vehicle records stay on-device unless you export or back up</div>
+    </div>
+  </div>
+
+  <div class="export-row fade-up" aria-label="Export formats">
+    <div class="export-card">
+      <img src="assets/braces.png" class="export-card-icon" alt="" aria-hidden="true" />
+      <div>
+        <div>JSON Export</div>
+        <div class="export-card-desc">Pretty-printed, shareable file</div>
+      </div>
+    </div>
+    <div class="export-card">
+      <img src="assets/divestiture.png" class="export-card-icon" alt="" aria-hidden="true" />
+      <div>
+        <div>PDF Export</div>
+        <div class="export-card-desc">Formatted A4 report with tables</div>
+      </div>
+    </div>
+    <div class="export-card">
+      <img src="assets/excel.png" class="export-card-icon" alt="" aria-hidden="true" />
+      <div>
+        <div>Excel Export</div>
+        <div class="export-card-desc">Spreadsheet for data analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     8. CALCULATORS SPOTLIGHT
+     ========================================================= -->
+<section id="calculators" aria-labelledby="calc-heading">
+  <div class="calc-inner">
+    <div class="calc-content fade-up">
+      <span class="label-pill">BUILT-IN TOOLS</span>
+      <h3 id="calc-heading">Tax &amp; Mileage Calculators</h3>
+      <p>
+        No spreadsheet juggling. Enter your annual mileage, business-use
+        percentage, and vehicle costs — OdoGrid instantly calculates
+        your deductible expenses and estimated tax saving.
+      </p>
+      <div class="calc-tabs" role="tablist" aria-label="Calculator tabs">
+        <div class="calc-tab active" role="tab" aria-selected="true">TAX CALCULATOR</div>
+        <div class="calc-tab"        role="tab" aria-selected="false">MILEAGE CALCULATOR</div>
+      </div>
+    </div>
+    <div class="calc-mock fade-up" aria-hidden="true">
+      <h4>Mileage Calculator</h4>
+      <div class="calc-field">
+        <label>Start Odometer (km)</label>
+        <div class="calc-field-bar"></div>
+      </div>
+      <div class="calc-field">
+        <label>End Odometer (km)</label>
+        <div class="calc-field-bar"></div>
+      </div>
+      <div class="calc-field">
+        <label>Fuel Used (L)</label>
+        <div class="calc-field-bar"></div>
+      </div>
+      <div class="calc-field">
+        <label>Price per Litre (optional)</label>
+        <div class="calc-field-bar"></div>
+      </div>
+      <div class="calc-output">
+        <div>
+          <div class="calc-output-label">Efficiency</div>
+          <div style="font-size:13px;color:var(--text-secondary);">12.4 km/L · 8.06 L/100km · 29.2 MPG</div>
+        </div>
+        <div class="calc-output-value">12.4 km/L</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     8B. EXPORT SETTINGS SPOTLIGHT
+     ========================================================= -->
+<section id="export-settings" aria-labelledby="export-settings-heading">
+  <div class="calc-inner">
+    <div class="calc-content fade-up">
+      <span class="label-pill">CUSTOMIZABLE REPORTS</span>
+      <h3 id="export-settings-heading">Export Settings &amp; PDF Theming</h3>
+      <p>
+        Access Export Settings from the App Drawer to personalise every report.
+        Pick from 15 accent colours, set paper size and orientation, and filter
+        Maintenance &amp; Expense exports by individual vehicle or all vehicles combined.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>15 PDF accent colours</strong> — Default slate, Cobalt, Blue, Purple, Orange, Sky, Slate, Cyan, Indigo, Amber, Rose, Red, Pink, Emerald, Lime</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Paper size &amp; orientation</strong> — A4, Letter, or Legal · Portrait or Landscape toggle</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Font scale</strong> — Small (8 pt), Normal (9 pt), or Large (11 pt)</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Vehicle-filtered exports</strong> — Maintenance &amp; Expense PDFs scoped to one vehicle or all vehicles</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Tax details</strong> — Tax year stepper, mileage rate, and business name on every Tax PDF</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>Date range filter</strong> — Scope Export History to a custom from / to date window</li>
+      </ul>
+    </div>
+    <div class="calc-mock fade-up" aria-hidden="true">
+      <h4>Accent Colour</h4>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:16px;">
+        <div style="aspect-ratio:1;border-radius:9px;background:#334155;border:2px solid rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:700;">Default</span></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#2563EB;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#7C3AED;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#EA580C;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#0EA5E9;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#475569;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#06B6D4;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#4F46E5;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#D97706;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#E11D48;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#DC2626;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#EC4899;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#059669;"></div>
+        <div style="aspect-ratio:1;border-radius:9px;background:#65A30D;"></div>
+      </div>
+      <div class="calc-field">
+        <label>Paper Size</label>
+        <div style="display:flex;gap:6px;">
+          <div style="flex:1;height:32px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;">A4</div>
+          <div style="flex:1;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-secondary);">Letter</div>
+          <div style="flex:1;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text-secondary);">Legal</div>
+        </div>
+      </div>
+      <div class="calc-field">
+        <label>Vehicle Filter</label>
+        <div style="height:32px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;padding:0 12px;font-size:12px;color:var(--text-secondary);">All Vehicles ▾</div>
+      </div>
+      <div class="calc-field">
+        <label>Tax Year</label>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text-secondary);">−</div>
+          <div style="flex:1;text-align:center;font-size:14px;font-weight:700;">2026</div>
+          <div style="width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text-secondary);">+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     9. CLOUD SYNC SPOTLIGHT
+     ========================================================= -->
+<section id="cloud-sync" aria-labelledby="cloud-heading">
+  <div class="container">
+    <div class="cloud-header fade-up">
+      <span class="label-pill">BACKUP &amp; RESTORE</span>
+      <h2 id="cloud-heading">Your Backup. On Your Terms.</h2>
+      <p>No proprietary cloud. Back up your encrypted database directly to Google Drive or Dropbox — providers you already use.</p>
+    </div>
+
+    <div class="cloud-cards">
+      <div class="card cloud-card fade-up">
+        <img src="assets/google-drive.png" class="cloud-card-icon" alt="" aria-hidden="true" />
+        <h4>Google Drive</h4>
+        <p class="cloud-card-tagline">"Backs up to your private appDataFolder — invisible to other apps"</p>
+        <ul class="cloud-features" role="list">
+          <li class="cloud-feature">ZIP compression &amp; auto-deduplication</li>
+          <li class="cloud-feature">Timestamp tracking</li>
+          <li class="cloud-feature">Dedicated backup and restore screen</li>
+          <li class="cloud-feature">Configurable auto-backup — Daily, Weekly, or Monthly</li>
+        </ul>
+      </div>
+      <div class="card cloud-card fade-up" style="transition-delay:0.1s">
+        <img src="assets/dropbox.png" class="cloud-card-icon" alt="" aria-hidden="true" />
+        <h4>Dropbox</h4>
+        <p class="cloud-card-tagline">"Backs up as encrypted ZIP into your /Apps/OdoGrid"</p>
+        <ul class="cloud-features" role="list">
+          <li class="cloud-feature">ZIP compression with timestamp history</li>
+          <li class="cloud-feature">Merge restore — only adds missing records</li>
+          <li class="cloud-feature">Configurable auto-backup — Daily, Weekly, or Monthly</li>
+          <li class="cloud-feature">Silently skips if not yet connected — never opens OAuth prompts in the background</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cloud-note fade-up">
+      <p class="cloud-note-restore">
+        Open the App Drawer and choose <strong>Google Drive</strong> or <strong>Dropbox</strong> to manage backup and restore from dedicated Sync pages.
+      </p>
+      <p class="cloud-note-restore" style="margin-top:8px;">
+        Auto-backup is <strong>enabled by default</strong> after your first successful backup — no extra configuration needed. Adjust the frequency (Daily, Weekly, or Monthly) from the Backup &amp; Sync screen at any time.
+      </p>
+      <p class="cloud-note-restore" style="margin-top:8px;">
+        Google Drive restore replaces local data; Dropbox restore merges missing records into local data. All backup files remain encrypted end-to-end.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     9B. DEEP-DIVE — DOCUMENT EXPIRY VAULT
+     ========================================================= -->
+<section class="deep-dive" aria-labelledby="docs-heading">
+  <div class="dive-inner">
+    <div class="dive-content fade-up">
+      <span class="label-pill">DOCUMENT VAULT</span>
+      <h3 id="docs-heading">Never Miss a Document Expiry Again</h3>
+      <p>
+        Store all your vehicle documents in one place — Driving Licence, Insurance, PUC,
+        RC Book, Fitness Certificate, Road Tax, and more. Colour-coded expiry badges tell you
+        at a glance what's due soon. Push notifications arrive at 30, 7, and 1 day before expiry.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Supports 7+ document types — fully customisable</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Green / orange / red badges based on days remaining</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Push notifications at 30 days, 7 days, and 1 day before expiry</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Per-vehicle document lists — separate records for every car or bike</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>All documents stored locally, encrypted — never uploaded to any server</li>
+      </ul>
+    </div>
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:14px;">Documents</div>
+          <div class="mock-list">
+            <div class="mock-item">
+              <div class="mock-item-title">Driving Licence</div>
+              <div class="mock-item-sub">Exp: Dec 2028 <span class="mock-item-badge badge-green">Valid</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Insurance</div>
+              <div class="mock-item-sub">Exp: May 12, 2026 <span class="mock-item-badge badge-orange">Due Soon</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">PUC Certificate</div>
+              <div class="mock-item-sub">Exp: Apr 30, 2026 <span class="mock-item-badge" style="background:rgba(239,68,68,0.18);color:#EF4444;">Expiring</span></div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Fitness Certificate</div>
+              <div class="mock-item-sub">Exp: Jan 2027 <span class="mock-item-badge badge-green">Valid</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     9C. DEEP-DIVE — SHIFT MODE & NET PROFIT
+     ========================================================= -->
+<section class="deep-dive deep-dive--alt" aria-labelledby="shift-heading">
+  <div class="dive-inner">
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:14px;">Shift Mode</div>
+          <div style="background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.25);border-radius:10px;padding:12px;margin-bottom:12px;">
+            <div style="font-size:9px;color:var(--text-secondary);">SHIFT IN PROGRESS</div>
+            <div style="font-size:18px;font-weight:800;color:#0EA5E9;">02:14:38</div>
+            <div style="display:flex;gap:6px;margin-top:8px;">
+              <div style="flex:1;height:28px;background:rgba(239,68,68,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#EF4444;font-weight:600;">End Shift</div>
+            </div>
+          </div>
+          <div class="mock-list">
+            <div class="mock-item">
+              <div class="mock-item-title">Earnings Today</div>
+              <div class="mock-item-sub" style="color:#0EA5E9;font-weight:700;">₦ 8,200</div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Fuel Cost Today</div>
+              <div class="mock-item-sub" style="color:#EF4444;">₦ −3,200</div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Net Profit</div>
+              <div class="mock-item-sub" style="color:#10B981;font-weight:800;">₦ +5,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dive-content fade-up">
+      <span class="label-pill">GIG ECONOMY</span>
+      <h3 id="shift-heading">Know Your Real Earnings, Not Just Revenue</h3>
+      <p>
+        For rideshare, delivery, and gig-economy drivers. Start a shift from the Dashboard,
+        log your earnings when you finish, and instantly see your real net profit — what you
+        actually made after deducting fuel, maintenance, and expenses.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Start / End / Cancel shift with a single tap from the Dashboard</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Live elapsed-time ticker while your shift runs</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Log shift earnings (ride income, delivery pay, etc.)</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Net Profit row on Dashboard — Earnings minus all vehicle costs</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Fleet Performance PDF — per-vehicle shifts, fuel cost, earnings &amp; net profit comparison</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Android Home Screen shortcuts — long-press app icon → Start Trip or Log Fuel</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     10. SCREENSHOTS CAROUSEL
+     ========================================================= -->
+<section id="screenshots" aria-labelledby="screenshots-heading">
+  <div class="container">
+    <div class="screenshots-header fade-up">
+      <h2 id="screenshots-heading">See It In Action</h2>
+    </div>
+
+    <div class="carousel-wrapper" role="region" aria-label="App screenshots carousel">
+      <div class="carousel-outer">
+      <div class="carousel-track" id="carousel-track" role="list">
+
+        <div class="carousel-slide" role="listitem">
+          <div class="carousel-phone">
+            <div class="carousel-screen">
+              <div style="font-size:10px;color:var(--text-secondary);margin-bottom:8px;">9:41</div>
+              <div class="streak-badge" style="font-size:10px;">🔥 12 Day Streak</div>
+              <div style="font-size:11px;font-weight:700;margin:8px 0 6px;">Dashboard</div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(79,142,247,0.08);border:1px solid rgba(79,142,247,0.18);border-radius:8px;padding:5px 10px;margin-bottom:6px;font-size:10px;">
+                <span style="color:var(--primary);font-size:13px;">‹</span>
+                <span style="font-weight:600;">April 2026</span>
+                <span style="color:var(--text-secondary);font-size:13px;">›</span>
+              </div>
+              <div style="font-size:9px;color:var(--text-secondary);text-align:center;margin-bottom:8px;">All Vehicles</div>
+              <div class="phone-chart-bars" style="height:50px;margin-bottom:10px;">
+                <div class="phone-bar" style="height:50%"></div>
+                <div class="phone-bar" style="height:70%"></div>
+                <div class="phone-bar" style="height:60%"></div>
+                <div class="phone-bar" style="height:90%"></div>
+                <div class="phone-bar" style="height:75%"></div>
+                <div class="phone-bar" style="height:100%"></div>
+              </div>
+              <div class="mock-item"><div class="mock-item-title">Total Spent</div><div style="font-size:16px;font-weight:800;color:var(--primary);">₦182,400</div></div>
+            </div>
+          </div>
+          <p class="carousel-label">Dashboard — month filter, vehicle picker + spending chart</p>
+        </div>
+
+        <div class="carousel-slide" role="listitem">
+          <div class="carousel-phone">
+            <div class="carousel-screen">
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;">Fuel Logs</div>
+              <div class="mock-list">
+                <div class="mock-item"><div class="mock-item-title">Total Petroleum</div><div class="mock-item-sub">47.5 L · 12 km/L <span class="mock-item-badge badge-green">12.0</span></div></div>
+                <div class="mock-item"><div class="mock-item-title">MRS Petrol</div><div class="mock-item-sub">40.0 L · 11.2 km/L <span class="mock-item-badge badge-blue">11.2</span></div></div>
+                <div class="mock-item"><div class="mock-item-title">Conoil</div><div class="mock-item-sub">52.0 L · 13.1 km/L <span class="mock-item-badge badge-green">13.1</span></div></div>
+              </div>
+            </div>
+          </div>
+          <p class="carousel-label">Fuel Log list — cards with efficiency badges</p>
+        </div>
+
+        <div class="carousel-slide" role="listitem">
+          <div class="carousel-phone">
+            <div class="carousel-screen">
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;">Add Fill-Up</div>
+              <div style="background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.2);border-radius:8px;padding:8px;font-size:10px;margin-bottom:10px;color:var(--primary);">📷 OCR pre-filled from receipt</div>
+              <div class="calc-field"><label style="font-size:10px;">Quantity (L)</label><div class="calc-field-bar" style="height:28px;"></div></div>
+              <div class="calc-field"><label style="font-size:10px;">Price per L</label><div class="calc-field-bar" style="height:28px;"></div></div>
+              <div class="calc-field"><label style="font-size:10px;">Station</label><div style="height:28px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;"><span style="font-size:10px;color:var(--primary);">📍 GPS</span></div></div>
+            </div>
+          </div>
+          <p class="carousel-label">Add Fuel Sheet — GPS button + OCR banner</p>
+        </div>
+
+        <div class="carousel-slide" role="listitem">
+          <div class="carousel-phone">
+            <div class="carousel-screen">
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;">Maintenance</div>
+              <div class="mock-list">
+                <div class="mock-item"><div class="mock-item-title">Oil Change</div><div class="mock-item-sub">Due in 320 km <span class="mock-item-badge badge-orange">Due Soon</span></div></div>
+                <div class="mock-item"><div class="mock-item-title">Tyre Rotation</div><div class="mock-item-sub">Due Apr 15 <span class="mock-item-badge badge-blue">Scheduled</span></div></div>
+                <div class="mock-item"><div class="mock-item-title">Air Filter</div><div class="mock-item-sub">Done Mar 10 <span class="mock-item-badge badge-green">Done</span></div></div>
+              </div>
+            </div>
+          </div>
+          <p class="carousel-label">Maintenance tasks list</p>
+        </div>
+
+        <div class="carousel-slide" role="listitem">
+          <div class="carousel-phone">
+            <div class="carousel-screen">
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;">Export &amp; Backup</div>
+              <div class="mock-list">
+                <div class="mock-item">
+                  <div class="mock-item-title">Tax Deduction Report</div>
+                  <div class="mock-item-sub">Toyota Camry · 1,240 km <span class="mock-item-badge badge-orange">🔒 Premium</span></div>
+                </div>
+                <div class="mock-item">
+                  <div class="mock-item-title">Export History</div>
+                  <div class="mock-item-sub">JSON · PDF · Excel <span class="mock-item-badge badge-orange">🔒 Premium</span></div>
+                </div>
+                <div class="mock-item">
+                  <div class="mock-item-title">Google Drive</div>
+                  <div class="mock-item-sub">Last: Today 09:14 <span class="mock-item-badge badge-green">Synced</span></div>
+                </div>
+                <div class="mock-item">
+                  <div class="mock-item-title">Dropbox</div>
+                  <div class="mock-item-sub">Auto · Weekly <span class="mock-item-badge badge-blue">Enabled</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="carousel-label">Export &amp; Backup — Tax Report, Export History, Google Drive, Dropbox</p>
+        </div>
+
+        <div class="carousel-slide" role="listitem">
+          <div class="carousel-phone">
+            <div class="carousel-screen">
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;">Settings</div>
+              <div class="mock-list">
+                <div class="mock-item"><div class="mock-item-title">Theme Mode</div><div class="mock-item-sub"><span class="mock-item-badge badge-blue">Dark</span></div></div>
+                <div class="mock-item"><div class="mock-item-title">Currency</div><div class="mock-item-sub"><span class="mock-item-badge badge-green">NGN ₦</span></div></div>
+                <div class="mock-item"><div class="mock-item-title">Auto-Backup</div><div class="mock-item-sub"><span class="mock-item-badge badge-blue">Weekly</span></div></div>
+              </div>
+            </div>
+          </div>
+          <p class="carousel-label">Settings page — theme selector + currency picker</p>
+        </div>
+
+      </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn carousel-btn--prev" aria-label="Previous slide" id="carousel-prev">&#8249;</button>
+        <div class="carousel-dots" role="tablist" aria-label="Carousel navigation" id="carousel-dots"></div>
+        <button class="carousel-btn carousel-btn--next" aria-label="Next slide" id="carousel-next">&#8250;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     11. ABOUT
+     ========================================================= -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="about-inner">
+    <span class="label-pill">ABOUT ODOGRID</span>
+    <h2 id="about-heading" class="fade-up">Built for Drivers Who Care About Their Cars</h2>
+
+    <p class="fade-up">
+      OdoGrid was built from a simple frustration — there was no
+      single app that tracked fuel costs, upcoming maintenance, business
+      mileage, <em>and</em> protected your data without demanding an account or
+      an internet connection.
+    </p>
+    <p class="fade-up">
+      We built OdoGrid to be the app we wanted to use ourselves:
+      offline-first, encrypted by default, with smart features that
+      save time and money at every service station and year-end tax filing.
+    </p>
+    <p class="fade-up">
+      The app supports petrol, diesel, hybrid, and electric vehicles.
+      It works for individual drivers, freelancers tracking business mileage,
+      and fleet managers who need detailed cost records for multiple vehicles.
+    </p>
+
+    <div class="values-grid">
+      <div class="card value-card fade-up">
+        <h4>Privacy First</h4>
+        <p>No accounts. No vehicle data servers. Your information stays on your device.</p>
+      </div>
+      <div class="card value-card fade-up" style="transition-delay:0.1s">
+        <h4>Offline Always</h4>
+        <p>Full functionality without an internet connection. Works anywhere.</p>
+      </div>
+      <div class="card value-card fade-up" style="transition-delay:0.2s">
+        <h4>Constantly Improving</h4>
+        <p>Regular updates based on real driver feedback, covering new vehicle types and tax rules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     12. CONTACT
+     ========================================================= -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="contact-inner">
+    <h2 id="contact-heading" class="fade-up">Get in Touch</h2>
+    <p class="fade-up">Questions, feedback, or bug reports. We read every message and respond quickly.</p>
+
+    <div class="contact-card card fade-up">
+      <div class="contact-email-row">
+        <span aria-hidden="true">✉️</span>
+        <span id="contact-email">supportodogrid@gmail.com</span>
+        <button class="copy-btn" onclick="copyEmail()" aria-label="Copy email address" id="copy-email-btn">Copy</button>
+      </div>
+      <p class="contact-response text-muted">We typically respond within 24–48 hours.</p>
+    </div>
+
+    <div class="contact-links fade-up">
+      <a href="mailto:supportodogrid@gmail.com?subject=Bug Report — OdoGrid"
+         class="btn btn-ghost">🐛 Report a Bug</a>
+      <a href="mailto:supportodogrid@gmail.com?subject=Feature Request — OdoGrid"
+         class="btn btn-ghost">💡 Request a Feature</a>
+      <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+         class="btn btn-ghost"
+         target="_blank"
+         rel="noopener noreferrer">⭐ Leave a Review</a>
+      <a href="mailto:supportodogrid@gmail.com?subject=OdoGrid Support Request"
+         class="btn btn-ghost">📱 Contact Support</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     13. RATINGS STRIP
+     ========================================================= -->
+<section id="ratings" aria-labelledby="ratings-heading">
+  <div class="ratings-strip-inner">
+    <img src="assets/customer-satisfaction.png" class="ratings-icon fade-up" alt="" aria-hidden="true" />
+    <div class="ratings-text fade-up">
+      <h3 id="ratings-heading">Loved by Drivers</h3>
+      <p>Built around real driver feedback. Fast, private, and reliable.</p>
+    </div>
+    <div class="ratings-stars fade-up" aria-label="5-star rating" role="img">★★★★★</div>
+    <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+       class="btn btn-outline-white fade-up"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Rate OdoGrid on Google Play">
+      ⭐&nbsp; Rate on Google Play
+    </a>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     15. CTA BLOCK
+     ========================================================= -->
+<section id="cta-block" aria-labelledby="cta-heading">
+  <h2 id="cta-heading">Ready to Drive Smarter?</h2>
+  <p>Start free on Android. No account required. Optional Premium subscription for an ad-free experience — cancel any time.</p>
+  <div class="cta-badges">
+    <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+       class="cta-badge"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Get OdoGrid on Google Play">
+      ▶&nbsp; Get it on Google Play
+    </a>
+
+  </div>
+  <div class="cta-trust">
+    <span>✅ Free to download</span>
+    <span>🔒 No account required</span>
+    <span>📴 Works offline</span>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+          <strong style="font-size:17px;">OdoGrid</strong>
+        </div>
+        <p>Smart vehicle management for every driver.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+           class="btn btn-ghost"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Get OdoGrid on Google Play"
+           style="width:fit-content;">
+          ▶&nbsp; Google Play
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul role="list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="#" aria-label="Terms of Use (coming soon)">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul role="list">
+          <li><a href="mailto:supportodogrid@gmail.com">supportodogrid@gmail.com</a></li>
+          <li><a href="mailto:supportodogrid@gmail.com?subject=Bug Report — OdoGrid">Report a Bug</a></li>
+          <li><a href="mailto:supportodogrid@gmail.com?subject=Feature Request — OdoGrid">Request a Feature</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <div class="footer-bottom">
+      <span>© 2026 OdoGrid. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="#" aria-label="Terms of Use (coming soon)">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<section id="closed-testing-dashboard" class="closed-dashboard hidden" aria-label="Closed testing dashboard">
+  <div class="closed-dashboard__panel">
+    <h2>Closed Testing Dashboard</h2>
+    <p>Hidden path for internal QA and 14-day Firebase activity tracking.</p>
+
+    <form id="closed-login-form" class="closed-dashboard__login" autocomplete="on">
+      <label>
+        Login email
+        <input
+          id="closed-email"
+          type="email"
+          value="azeez3254@gmail.com"
+          required
+          autocomplete="username"
+        />
+      </label>
+      <label>
+        Password
+        <input
+          id="closed-password"
+          type="password"
+          required
+          autocomplete="current-password"
+        />
+      </label>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+      <p id="closed-auth-error" class="closed-dashboard__error" role="alert"></p>
+    </form>
+
+    <div id="closed-dashboard-content" class="hidden">
+      <div class="closed-dashboard__topbar">
+        <span id="closed-auth-user"></span>
+        <div class="closed-dashboard__actions">
+          <button id="closed-reset-data" class="btn btn-ghost closed-dashboard__danger" type="button">
+            Reset logs
+          </button>
+          <button id="closed-signout" class="btn btn-ghost" type="button">Sign out</button>
+        </div>
+      </div>
+
+      <div class="closed-dashboard__stats" id="closed-stats"></div>
+
+      <h3>Top actions</h3>
+      <ul id="closed-top-actions" class="closed-dashboard__list"></ul>
+
+      <h3>Recent events</h3>
+      <div id="closed-events" class="closed-dashboard__events"></div>
+    </div>
+  </div>
+</section>
+
+<script src="main.js"></script>
+<script type="module" src="closed-testing.js"></script>
+</body>
+</html>

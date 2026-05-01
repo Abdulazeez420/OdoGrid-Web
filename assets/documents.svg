@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Document body -->
+  <rect x="10" y="8" width="36" height="46" rx="4" ry="4" fill="#4F86F7" opacity="0.15"/>
+  <rect x="10" y="8" width="36" height="46" rx="4" ry="4" stroke="#4F86F7" stroke-width="2.5"/>
+  <!-- Folded corner -->
+  <path d="M36 8 L46 18 L36 18 Z" fill="#4F86F7" opacity="0.35"/>
+  <path d="M36 8 L46 18 L36 18 Z" stroke="#4F86F7" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Lines representing text -->
+  <line x1="17" y1="28" x2="39" y2="28" stroke="#4F86F7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="17" y1="34" x2="39" y2="34" stroke="#4F86F7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="17" y1="40" x2="30" y2="40" stroke="#4F86F7" stroke-width="2" stroke-linecap="round"/>
+  <!-- Shield badge (bottom-right) -->
+  <path d="M44 40 C44 40 38 43 38 49 C38 53 41 56 44 57 C47 56 50 53 50 49 C50 43 44 40 44 40Z" fill="#22C55E" opacity="0.9"/>
+  <!-- Checkmark inside shield -->
+  <polyline points="40.5,49 43,51.5 47.5,46" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

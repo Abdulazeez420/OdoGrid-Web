@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — OdoGrid</title>
+  <meta name="description" content="OdoGrid Privacy Policy — your data stays on your device, always." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://odogrid.app/privacy-policy/" />
+
+  <!-- Favicon setup -->
+  <link rel="icon" href="/assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/circle_splash.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/circle_splash.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* ── Privacy page overrides ─────────────────────────── */
+    body { background: var(--bg-dark); }
+
+    .pp-hero {
+      background: linear-gradient(135deg, #0D0D0D 0%, #0F1B2D 100%);
+      padding: 140px 24px 80px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pp-hero-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .pp-hero-logo img {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(79,142,247,0.35);
+    }
+    .pp-hero-logo span {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .pp-hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 14px;
+    }
+    .pp-hero-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+    .pp-hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .pp-hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,142,247,0.08);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: var(--radius-pill);
+      padding: 7px 18px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Layout ─────────────────────────────────────────── */
+    .pp-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── Sticky sidebar TOC ─────────────────────────────── */
+    .pp-toc {
+      position: sticky;
+      top: 88px;
+    }
+    .pp-toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .pp-toc ul {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pp-toc ul li a {
+      display: block;
+      padding: 7px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      border-left: 2px solid transparent;
+      transition: color var(--transition), background var(--transition), border-color var(--transition);
+    }
+    .pp-toc ul li a:hover,
+    .pp-toc ul li a.active {
+      color: var(--primary);
+      background: rgba(79,142,247,0.08);
+      border-left-color: var(--primary);
+    }
+
+    /* ── Article ────────────────────────────────────────── */
+    .pp-article { min-width: 0; }
+
+    .pp-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 100px;
+    }
+    .pp-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pp-section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(79,142,247,0.12);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pp-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .pp-section p,
+    .pp-section li {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .pp-section p + p { margin-top: 12px; }
+
+    /* ── Data table ─────────────────────────────────────── */
+    .pp-table-wrap { overflow-x: auto; margin-top: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); }
+    .pp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .pp-table th {
+      background: rgba(255,255,255,0.04);
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-primary);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      white-space: nowrap;
+    }
+    .pp-table td {
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+    .pp-table tr:last-child td { border-bottom: none; }
+    .pp-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .never-chip {
+      display: inline-block;
+      background: rgba(48,209,88,0.12);
+      color: var(--success);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .manual-chip {
+      display: inline-block;
+      background: rgba(79,142,247,0.12);
+      color: var(--primary);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ── Third-party service cards ──────────────────────── */
+    .pp-services {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .pp-service {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .pp-service-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .pp-service-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(79,142,247,0.12);
+      color: var(--primary);
+      border-radius: 20px;
+      padding: 2px 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .pp-service-tag.coming-soon {
+      background: rgba(255,140,0,0.12);
+      color: var(--accent);
+    }
+    .pp-service p { font-size: 13px; margin-top: 4px; }
+    .pp-service a { color: var(--primary); text-decoration: underline; }
+    .pp-service a:hover { color: #fff; }
+
+    /* ── Ad format cards ────────────────────────────────── */
+    .pp-ad-formats {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .pp-ad-format {
+      display: flex;
+      gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+    .pp-ad-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pp-ad-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .pp-ad-desc { font-size: 13px; color: var(--text-secondary); }
+
+    /* ── Contact block ──────────────────────────────────── */
+    .pp-contact-box {
+      background: rgba(79,142,247,0.06);
+      border: 1px solid rgba(79,142,247,0.18);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+    .pp-contact-box p { font-size: 15px; }
+    .pp-contact-box a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* ── Back link ──────────────────────────────────────── */
+    .pp-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      margin-bottom: 32px;
+    }
+    .pp-back:hover { color: var(--primary); }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .pp-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .pp-toc {
+        position: static;
+        background: var(--surface-dark);
+        border-radius: var(--radius-card);
+        padding: 20px 24px;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     NAVIGATION BAR
+     ========================================================= -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="/" class="nav-logo" aria-label="OdoGrid home">
+      <img src="/assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+      OdoGrid
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="/privacy-policy/" class="nav-privacy-link" aria-current="page">Privacy Policy</a>
+      <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+         class="btn-get-app"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Get OdoGrid on Google Play">Get the App</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="/#features" onclick="closeMobileMenu()">Features</a>
+  <a href="/#about"    onclick="closeMobileMenu()">About</a>
+  <a href="/#contact"  onclick="closeMobileMenu()">Contact</a>
+  <a href="/privacy-policy/"        onclick="closeMobileMenu()">Privacy Policy</a>
+  <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+     class="btn btn-primary"
+     target="_blank"
+     rel="noopener noreferrer">Get the App</a>
+</div>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<div class="pp-hero">
+  <div class="pp-hero-logo">
+    <img src="/assets/logo.png" alt="OdoGrid app icon" />
+    <span>OdoGrid</span>
+  </div>
+  <h1>Privacy Policy</h1>
+  <p class="pp-hero-meta">Last updated: April 2026 &nbsp;·&nbsp; Phase 15 — Pre-Launch Compliance, Contact Support &amp; Data Deletion</p>
+  <div class="pp-hero-badges">
+    <span class="pp-hero-badge">🔒 AES-256 Encrypted</span>
+    <span class="pp-hero-badge">📴 100% Offline</span>
+    <span class="pp-hero-badge">👁️ No Vehicle Telemetry</span>
+    <span class="pp-hero-badge">☁️ Auto Backup by Default</span>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     LAYOUT: TOC + ARTICLE
+     ========================================================= -->
+<div class="pp-layout">
+
+  <!-- Sidebar TOC -->
+  <aside class="pp-toc" aria-label="Table of contents">
+    <p class="pp-toc-title">On this page</p>
+    <ul role="list">
+      <li><a href="#pp-overview"    class="toc-link">1. Overview</a></li>
+      <li><a href="#pp-data"        class="toc-link">2. Data We Collect</a></li>
+      <li><a href="#pp-third-party" class="toc-link">3. Third-Party Services</a></li>
+      <li><a href="#pp-ads"         class="toc-link">4. Advertising &amp; Consent</a></li>
+      <li><a href="#pp-export"      class="toc-link">5. Data Export &amp; Deletion</a></li>
+      <li><a href="#pp-backup"      class="toc-link">6. Cloud Backup &amp; Auto Sync</a></li>
+      <li><a href="#pp-contact"     class="toc-link">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Article -->
+  <article class="pp-article">
+
+    <a href="/" class="pp-back">← Back to OdoGrid</a>
+
+    <!-- 1. Overview -->
+    <section class="pp-section fade-up" id="pp-overview" aria-labelledby="pp-overview-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">1</div>
+        <h2 id="pp-overview-h">Overview</h2>
+      </div>
+      <p>
+        OdoGrid is designed to protect your privacy by default. The app operates entirely
+        offline and does not transmit your vehicle data to any external server owned or operated by us.
+      </p>
+      <p>
+        All vehicle details, fuel logs, maintenance records, trip logs, and expenses are stored
+        locally on your device inside an AES-256 hardware-backed encrypted Isar database.
+        No account is required. No cloud registration. Your data belongs to you.
+      </p>
+    </section>
+
+    <!-- 2. Data We Collect -->
+    <section class="pp-section fade-up" id="pp-data" aria-labelledby="pp-data-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">2</div>
+        <h2 id="pp-data-h">Data We Collect</h2>
+      </div>
+      <p>We store the following data types locally on your device only:</p>
+      <div class="pp-table-wrap">
+        <table class="pp-table" role="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Where Stored</th>
+              <th>Leaves Device?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vehicle details (make, model, VIN, plate)</td>
+              <td>Local encrypted Isar DB</td>
+              <td><span class="manual-chip">Only if you export manually</span></td>
+            </tr>
+            <tr>
+              <td>Fuel logs &amp; odometer readings</td>
+              <td>Local encrypted Isar DB</td>
+              <td><span class="manual-chip">Only if you export manually</span></td>
+            </tr>
+            <tr>
+              <td>Maintenance records &amp; expenses</td>
+              <td>Local encrypted Isar DB</td>
+              <td><span class="manual-chip">Only if you export manually</span></td>
+            </tr>
+            <tr>
+              <td>Trip logs &amp; business mileage</td>
+              <td>Local encrypted Isar DB</td>
+              <td><span class="manual-chip">Only if you export manually</span></td>
+            </tr>
+            <tr>
+              <td>App preferences (currency, theme)</td>
+              <td>SharedPreferences (device)</td>
+              <td><span class="never-chip">Never</span></td>
+            </tr>
+            <tr>
+              <td>Location (GPS for station tagging)</td>
+              <td>Never persisted</td>
+              <td><span class="never-chip">Never — in-memory only, discarded immediately</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. Third-Party Services -->
+    <section class="pp-section fade-up" id="pp-third-party" aria-labelledby="pp-third-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">3</div>
+        <h2 id="pp-third-h">Third-Party Services</h2>
+      </div>
+      <p>OdoGrid integrates with the following third-party services. Each operates under its own privacy policy:</p>
+      <div class="pp-services">
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Google AdMob
+            <span class="pp-service-tag">Android only</span>
+          </div>
+          <p>
+            Displays ads after consent is granted (GDPR compliant). Three ad formats are used:
+            banner ads on list pages, rewarded ads gating premium exports and AI Assistant analysis,
+            and frequency-capped interstitial ads shown at most once every three saves across fuel,
+            maintenance, and expense entries. Users can purchase a one-time Remove Ads entitlement.
+          </p>
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Google Drive
+            <span class="pp-service-tag">Optional</span>
+          </div>
+          <p>
+            If you enable backup, your encrypted database is stored in your own Google Drive
+            <code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:4px;font-size:12px;">appDataFolder</code>
+            — invisible to all other apps. OdoGrid does not have access to the rest of your Drive.
+          </p>
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Dropbox
+            <span class="pp-service-tag">Optional</span>
+          </div>
+          <p>
+            If enabled, encrypted backup ZIPs are stored in your Dropbox app folder
+            <code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:4px;font-size:12px;">/Apps/OdoGrid</code>.
+            OdoGrid does not access your other Dropbox files. Auto-backup silently skips if
+            Dropbox has not yet been connected in the current session — the app never opens a
+            browser or OAuth prompt in the background without your explicit action.
+          </p>
+          <p><a href="https://www.dropbox.com/privacy" target="_blank" rel="noopener noreferrer">Dropbox Privacy Policy →</a></p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Firebase Crashlytics
+            <span class="pp-service-tag">Diagnostics</span>
+          </div>
+          <p>
+            Collects crash diagnostics to improve stability and reliability. It does not collect
+            your vehicle log content.
+          </p>
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Firebase Analytics
+            <span class="pp-service-tag">Product analytics</span>
+          </div>
+          <p>
+            Helps measure app usage and feature quality trends. Vehicle records remain stored
+            locally in the encrypted on-device database.
+          </p>
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Google ML Kit
+            <span class="pp-service-tag">On-device only</span>
+          </div>
+          <p>
+            OCR text recognition for receipt scanning runs entirely on-device using the
+            Google ML Kit Text Recognition API. No images or scan results are ever uploaded.
+          </p>
+          <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Advertising & Consent -->
+    <section class="pp-section fade-up" id="pp-ads" aria-labelledby="pp-ads-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">4</div>
+        <h2 id="pp-ads-h">Advertising &amp; Consent</h2>
+      </div>
+      <p>
+        We display ads via Google AdMob on Android only. On first launch, you are presented with
+        a GDPR consent dialog. You may decline personalised ads — the app remains fully functional
+        with non-personalised ads shown instead.
+      </p>
+      <div class="pp-ad-formats">
+        <div class="pp-ad-format">
+          <div class="pp-ad-icon" aria-hidden="true">📌</div>
+          <div>
+            <div class="pp-ad-name">Banner Ads</div>
+            <p class="pp-ad-desc">Small static banners shown at the bottom of list pages (fuel, maintenance, expenses). Non-intrusive and always visible.</p>
+          </div>
+        </div>
+        <div class="pp-ad-format">
+          <div class="pp-ad-icon" aria-hidden="true">🎬</div>
+          <div>
+            <div class="pp-ad-name">Rewarded Ads</div>
+            <p class="pp-ad-desc">Short video ads shown when you choose premium exports (Tax Report, Export History, PDF, Excel) or run AI Assistant analysis. If the ad fails to load, the requested action proceeds immediately as fallback — you are never blocked.</p>
+          </div>
+        </div>
+        <div class="pp-ad-format">
+          <div class="pp-ad-icon" aria-hidden="true">⚡</div>
+          <div>
+            <div class="pp-ad-name">Interstitial Ads</div>
+            <p class="pp-ad-desc">Full-screen ads shown at most once every three saves combined across fuel, maintenance, and expense entries. They appear after the form closes so you are never interrupted mid-task.</p>
+          </div>
+        </div>
+      </div>
+      <p>
+        You can also purchase a one-time <strong style="color:#fff;">Remove Ads</strong> entitlement via Google Play Billing to disable all ads permanently.
+      </p>
+    </section>
+
+    <!-- 5. Data Export & Deletion -->
+    <section class="pp-section fade-up" id="pp-export" aria-labelledby="pp-export-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">5</div>
+        <h2 id="pp-export-h">Data Export &amp; Deletion</h2>
+      </div>
+      <p>
+        You can export all your data at any time from <strong style="color:#fff;">Privacy &amp; Data → Export My Data</strong>
+        in JSON, PDF, or Excel format. Each export is gated behind a short rewarded ad; if the ad
+        fails to load the export proceeds immediately. Exports include real stored values (including VIN
+        and plate number).
+      </p>
+      <p>
+        To permanently delete all data, go to <strong style="color:#fff;">Privacy &amp; Data → Wipe Data</strong>.
+        This deletes the encrypted database and all secure hardware-backed keys from your device.
+        <strong style="color:#fff;">This action is irreversible.</strong>
+      </p>
+    </section>
+
+    <!-- 6. Cloud Backup & Auto Sync -->
+    <section class="pp-section fade-up" id="pp-backup" aria-labelledby="pp-backup-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">6</div>
+        <h2 id="pp-backup-h">Cloud Backup &amp; Auto Sync</h2>
+      </div>
+      <p>
+        Once you complete your first successful backup or restore for a provider, OdoGrid
+        <strong style="color:#fff;">enables automatic backup by default</strong> — no additional
+        configuration required. The app silently backs up your encrypted database each time it is
+        brought to the foreground, provided the configured interval (Daily, Weekly, or Monthly) has
+        elapsed since the last successful run. You can adjust the backup frequency at any time from
+        <strong style="color:#fff;">Backup &amp; Sync</strong> in the app — it is not limited to the
+        Settings page.
+      </p>
+      <p>
+        If you connect <strong style="color:#fff;">Google Drive</strong>, your encrypted Isar database
+        is transferred directly to your personal Google Drive
+        <code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:4px;font-size:13px;">appDataFolder</code>
+        — invisible to all other apps. OdoGrid does not have access to your Google credentials
+        or the contents of the uploaded file. Backups are compressed (ZIP), timestamped, and
+        auto-deduplicated so only the latest backup is retained. A Google Drive restore fully
+        replaces your local database.
+      </p>
+      <p>
+        If you connect <strong style="color:#fff;">Dropbox</strong>, encrypted ZIP backups are stored
+        in your Dropbox app folder
+        (<code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:4px;font-size:13px;">/Apps/OdoGrid</code>).
+        OdoGrid does not access your other Dropbox files. Dropbox restores merge missing records
+        into your existing local data. If Dropbox has not been connected in the current session,
+        scheduled auto-backups skip silently — the app never opens a browser or OAuth prompt in the
+        background without your explicit action.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section class="pp-section fade-up" id="pp-contact" aria-labelledby="pp-contact-h">
+      <div class="pp-section-header">
+        <h2 id="pp-contact-h" style="margin:0;">Contact for Privacy Enquiries</h2>
+      </div>
+      <p>If you have any questions about this Privacy Policy or how your data is handled, please reach out:</p>
+      <div class="pp-contact-box">
+        <p>
+          ✉️&nbsp; <a href="mailto:supportodogrid@gmail.com?subject=Privacy Enquiry — OdoGrid">supportodogrid@gmail.com</a>
+        </p>
+        <p style="margin-top:10px;font-size:13px;color:var(--text-secondary);">
+          Subject line: <em>Privacy Enquiry — OdoGrid</em><br>
+          We typically respond within 24–48 hours.
+        </p>
+      </div>
+    </section>
+
+  </article>
+</div><!-- end .pp-layout -->
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+          <strong style="font-size:17px;">OdoGrid</strong>
+        </div>
+        <p>Smart vehicle management for every driver.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+           class="btn btn-ghost"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Get OdoGrid on Google Play"
+           style="width:fit-content;">
+          ▶&nbsp; Google Play
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul role="list">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy-policy/" aria-current="page">Privacy Policy</a></li>
+          <li><a href="#" aria-label="Terms of Use (coming soon)">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul role="list">
+          <li><a href="mailto:supportodogrid@gmail.com">supportodogrid@gmail.com</a></li>
+          <li><a href="mailto:supportodogrid@gmail.com?subject=Bug Report — OdoGrid">Report a Bug</a></li>
+          <li><a href="mailto:supportodogrid@gmail.com?subject=Feature Request — OdoGrid">Request a Feature</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2026 OdoGrid. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy/" aria-current="page">Privacy Policy</a>
+        <a href="#" aria-label="Terms of Use (coming soon)">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
+<script>
+  // ── TOC active link highlight on scroll ──────────────────
+  (function initTocHighlight() {
+    const links    = document.querySelectorAll('.toc-link');
+    const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+
+    function onScroll() {
+      const scrollY  = window.scrollY + 120;
+      let   activeIdx = 0;
+      sections.forEach((s, i) => {
+        if (s && s.offsetTop <= scrollY) activeIdx = i;
+      });
+      links.forEach((l, i) => l.classList.toggle('active', i === activeIdx));
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+</body>
+</html>
