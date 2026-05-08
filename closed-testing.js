@@ -1,21 +1,18 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js';
 import {
   getAuth,
-  signInAnonymously,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js';
 import {
   getFirestore,
-  addDoc,
   collection,
   getDocs,
   limit,
   onSnapshot,
   orderBy,
   query,
-  serverTimestamp,
   Timestamp,
   writeBatch,
   where,
@@ -39,7 +36,6 @@ const ALLOWED_EMAIL = 'azeez3254@gmail.com';
 const EXPECTED_TESTERS = 12;
 const TRACKING_DAYS = 14;
 const HIDDEN_HASH = '#closed-testing-dashboard';
-const TESTER_KEY = 'closed_testing_tester_id_v1';
 
 const dashboardRoot = document.getElementById('closed-testing-dashboard');
 const loginForm = document.getElementById('closed-login-form');
@@ -62,9 +58,6 @@ boot().catch((error) => {
 });
 
 async function boot() {
-  await ensureAnonymousAuth();
-  await logActivity('web_visit', { page: window.location.pathname });
-  wirePublicWebsiteActivity();
   updateVisibilityFromHash();
   window.addEventListener('hashchange', updateVisibilityFromHash);
 }
@@ -116,7 +109,6 @@ function attachDashboardHandlers() {
       const isAdmin = user?.email?.toLowerCase() === ALLOWED_EMAIL;
       if (isAdmin) {
         showDashboard(user.email || ALLOWED_EMAIL);
-        await logActivity('admin_login_success', { source: 'web_dashboard' });
         startDashboardStream();
         return;
       }
@@ -159,9 +151,7 @@ async function onLoginSubmit(event) {
 }
 
 async function onSignOut() {
-  await logActivity('admin_logout', { source: 'web_dashboard' });
   await signOut(auth);
-  await ensureAnonymousAuth();
   showLogin();
 }
 
@@ -187,12 +177,6 @@ async function onResetLogs() {
 
   try {
     const deleted = await clearClosedTestingActivity();
-
-    // Record when a new test cycle starts after wipe.
-    await logActivity('admin_reset_logs', {
-      source: 'web_dashboard',
-      deletedCount: deleted,
-    });
 
     authError.style.color = '#34d399';
     authError.textContent = `Reset complete. Deleted ${deleted} log(s).`;
@@ -251,6 +235,7 @@ function startDashboardStream() {
   const activitiesRef = collection(db, 'closed_testing_activity');
   const q = query(
     activitiesRef,
+    where('source', '==', 'app'),
     where('clientTimestamp', '>=', Timestamp.fromDate(cutoff)),
     orderBy('clientTimestamp', 'desc'),
     limit(1200),
@@ -282,10 +267,10 @@ function renderDashboard(rows) {
 function buildSummary(rows) {
   const testerIds = new Set();
   const activeDays = new Set();
+  const firstSeenByTester = new Map();
   const actionCounts = new Map();
 
   let appEvents = 0;
-  let webEvents = 0;
   let sessionStarts = 0;
   let sessionEnds = 0;
   let endedSessionCount = 0;
@@ -295,8 +280,16 @@ function buildSummary(rows) {
     if (row.testerId) testerIds.add(row.testerId);
     if (row.dayKey) activeDays.add(row.dayKey);
 
+    const tsDate = row.clientTimestamp?.toDate ? row.clientTimestamp.toDate() : null;
+    if (row.testerId && tsDate) {
+      const tsMs = tsDate.getTime();
+      const prev = firstSeenByTester.get(row.testerId);
+      if (prev == null || tsMs < prev) {
+        firstSeenByTester.set(row.testerId, tsMs);
+      }
+    }
+
     if (row.source === 'app') appEvents += 1;
-    if (row.source === 'web') webEvents += 1;
 
     const action = row.action || 'unknown';
     actionCounts.set(action, (actionCounts.get(action) || 0) + 1);
@@ -319,12 +312,23 @@ function buildSummary(rows) {
     .sort((a, b) => b[1] - a[1])
     .slice(0, 8);
 
+  let trackingDay = null;
+  if (firstSeenByTester.size >= EXPECTED_TESTERS) {
+    const sortedFirstSeen = [...firstSeenByTester.values()].sort((a, b) => a - b);
+    const cohortStartMs = sortedFirstSeen[EXPECTED_TESTERS - 1];
+    const elapsedDays = Math.max(
+      0,
+      Math.floor((Date.now() - cohortStartMs) / (24 * 60 * 60 * 1000)),
+    );
+    trackingDay = Math.min(elapsedDays, TRACKING_DAYS);
+  }
+
   return {
     totalEvents: rows.length,
     uniqueTesters: testerIds.size,
     activeDays: activeDays.size,
+    trackingDay,
     appEvents,
-    webEvents,
     sessionStarts,
     sessionEnds,
     averageSessionDurationSeconds:
@@ -338,12 +342,14 @@ function buildSummary(rows) {
 function renderStats(summary) {
   if (!statsContainer) return;
 
+  const trackingValue = summary.trackingDay == null
+    ? `Waiting (${summary.uniqueTesters}/${EXPECTED_TESTERS})`
+    : `${summary.trackingDay}/${TRACKING_DAYS}`;
+
   const cards = [
-    ['Events (14 days)', String(summary.totalEvents)],
+    ['App events (14 days)', String(summary.totalEvents)],
     ['Unique testers', `${summary.uniqueTesters}/${EXPECTED_TESTERS}`],
-    ['Active days', `${summary.activeDays}/${TRACKING_DAYS}`],
-    ['App events', String(summary.appEvents)],
-    ['Web events', String(summary.webEvents)],
+    ['Tracking day', trackingValue],
     ['Session starts', String(summary.sessionStarts)],
     ['Session ends', String(summary.sessionEnds)],
     [
@@ -452,78 +458,6 @@ function formatEventDateTime(date) {
     second: '2-digit',
     hour12: true,
   }).format(date);
-}
-
-async function ensureAnonymousAuth() {
-  if (auth.currentUser) return;
-
-  try {
-    await signInAnonymously(auth);
-  } catch (error) {
-    console.warn('anonymous auth unavailable for closed testing', error);
-  }
-}
-
-async function logActivity(action, metadata = {}) {
-  const testerId = ensureTesterId();
-  const now = new Date();
-
-  try {
-    await addDoc(collection(db, 'closed_testing_activity'), {
-      action,
-      source: 'web',
-      testerId,
-      platform: 'web',
-      uid: auth.currentUser?.uid || null,
-      authProvider: auth.currentUser?.isAnonymous ? 'anonymous' : 'password',
-      dayKey: now.toISOString().slice(0, 10),
-      clientTimestamp: Timestamp.fromDate(now),
-      timestamp: serverTimestamp(),
-      metadata,
-    });
-  } catch (error) {
-    console.warn('web activity log failed', error);
-  }
-}
-
-function wirePublicWebsiteActivity() {
-  const buttons = document.querySelectorAll('a.btn, button');
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const label = button.textContent?.trim()?.slice(0, 80) || 'button';
-      logActivity('web_click', { label });
-    });
-  });
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-      logActivity('web_foreground');
-    }
-  });
-}
-
-function ensureTesterId() {
-  const searchTester = new URLSearchParams(window.location.search).get('tester');
-  if (searchTester) {
-    localStorage.setItem(TESTER_KEY, searchTester);
-    return searchTester;
-  }
-
-  const existing = localStorage.getItem(TESTER_KEY);
-  if (existing) return existing;
-
-  const generated = generateTesterId();
-  localStorage.setItem(TESTER_KEY, generated);
-  return generated;
-}
-
-function generateTesterId() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let out = 'W-';
-  for (let i = 0; i < 6; i += 1) {
-    out += chars[Math.floor(Math.random() * chars.length)];
-  }
-  return out;
 }
 
 function escapeHtml(value) {

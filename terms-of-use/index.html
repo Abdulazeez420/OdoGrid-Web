@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — OdoGrid</title>
+  <meta name="description" content="OdoGrid Terms of Use — the rules governing your use of the OdoGrid vehicle management app." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://odogrid.com/terms-of-use/" />
+
+  <!-- Favicon setup -->
+  <link rel="icon" href="../assets/circle_splash.png" />
+  <link rel="shortcut icon" type="image/png" href="../assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/circle_splash.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/circle_splash.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* ── Terms page overrides ───────────────────────────── */
+    body { background: var(--bg-dark); }
+
+    .pp-hero {
+      background: linear-gradient(135deg, #0D0D0D 0%, #0F1B2D 100%);
+      padding: 140px 24px 80px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pp-hero-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .pp-hero-logo img {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(79,142,247,0.35);
+    }
+    .pp-hero-logo span {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .pp-hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 14px;
+    }
+    .pp-hero-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+    .pp-hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .pp-hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79,142,247,0.08);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: var(--radius-pill);
+      padding: 7px 18px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Layout ─────────────────────────────────────────── */
+    .pp-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── Sticky sidebar TOC ─────────────────────────────── */
+    .pp-toc {
+      position: sticky;
+      top: 88px;
+    }
+    .pp-toc-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .pp-toc ul {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pp-toc ul li a {
+      display: block;
+      padding: 7px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      border-left: 2px solid transparent;
+      transition: color var(--transition), background var(--transition), border-color var(--transition);
+    }
+    .pp-toc ul li a:hover,
+    .pp-toc ul li a.active {
+      color: var(--primary);
+      background: rgba(79,142,247,0.08);
+      border-left-color: var(--primary);
+    }
+
+    /* ── Article ────────────────────────────────────────── */
+    .pp-article { min-width: 0; }
+
+    .pp-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 100px;
+    }
+    .pp-section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pp-section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(79,142,247,0.12);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pp-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .pp-section p,
+    .pp-section li {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .pp-section p + p { margin-top: 12px; }
+    .pp-section ul {
+      margin-top: 12px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* ── Highlight box ──────────────────────────────────── */
+    .pp-highlight-box {
+      background: rgba(79,142,247,0.06);
+      border: 1px solid rgba(79,142,247,0.18);
+      border-radius: var(--radius-card);
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+    .pp-highlight-box p { font-size: 14px; color: var(--text-secondary); }
+
+    /* ── Warning box ────────────────────────────────────── */
+    .pp-warning-box {
+      background: rgba(255,69,58,0.06);
+      border: 1px solid rgba(255,69,58,0.18);
+      border-radius: var(--radius-card);
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+    .pp-warning-box p { font-size: 14px; color: var(--text-secondary); }
+
+    /* ── Contact block ──────────────────────────────────── */
+    .pp-contact-box {
+      background: rgba(79,142,247,0.06);
+      border: 1px solid rgba(79,142,247,0.18);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+    .pp-contact-box p { font-size: 15px; }
+    .pp-contact-box a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* ── Back link ──────────────────────────────────────── */
+    .pp-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      margin-bottom: 32px;
+    }
+    .pp-back:hover { color: var(--primary); }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .pp-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .pp-toc {
+        position: static;
+        background: var(--surface-dark);
+        border-radius: var(--radius-card);
+        padding: 20px 24px;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     NAVIGATION BAR
+     ========================================================= -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <a href="/" class="nav-logo" aria-label="OdoGrid home">
+      <img src="/assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+      OdoGrid
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="/privacy-policy/" class="nav-privacy-link">Privacy Policy</a>
+      <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+         class="btn-get-app"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Get OdoGrid on Google Play">Get the App</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="/#features" onclick="closeMobileMenu()">Features</a>
+  <a href="/#about"    onclick="closeMobileMenu()">About</a>
+  <a href="/#contact"  onclick="closeMobileMenu()">Contact</a>
+  <a href="/privacy-policy/"  onclick="closeMobileMenu()">Privacy Policy</a>
+  <a href="/terms-of-use/"    onclick="closeMobileMenu()" aria-current="page">Terms of Use</a>
+  <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+     class="btn btn-primary"
+     target="_blank"
+     rel="noopener noreferrer">Get the App</a>
+</div>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<div class="pp-hero">
+  <div class="pp-hero-logo">
+    <img src="/assets/logo.png" alt="OdoGrid app icon" />
+    <span>OdoGrid</span>
+  </div>
+  <h1>Terms of Use</h1>
+  <p class="pp-hero-meta">Last updated: May 2026 &nbsp;·&nbsp; Effective immediately upon installation or use of the app</p>
+  <div class="pp-hero-badges">
+    <span class="pp-hero-badge">📱 Android App</span>
+    <span class="pp-hero-badge">🔒 Offline-First</span>
+    <span class="pp-hero-badge">🛡️ Your Data, Your Device</span>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     LAYOUT: TOC + ARTICLE
+     ========================================================= -->
+<div class="pp-layout">
+
+  <!-- Sidebar TOC -->
+  <aside class="pp-toc" aria-label="Table of contents">
+    <p class="pp-toc-title">On this page</p>
+    <ul role="list">
+      <li><a href="#tou-acceptance"      class="toc-link">1. Acceptance of Terms</a></li>
+      <li><a href="#tou-description"     class="toc-link">2. Description of Service</a></li>
+      <li><a href="#tou-eligibility"     class="toc-link">3. Eligibility</a></li>
+      <li><a href="#tou-user-content"    class="toc-link">4. Your Data &amp; Content</a></li>
+      <li><a href="#tou-acceptable-use"  class="toc-link">5. Acceptable Use</a></li>
+      <li><a href="#tou-ip"              class="toc-link">6. Intellectual Property</a></li>
+      <li><a href="#tou-billing"         class="toc-link">7. In-App Purchases</a></li>
+      <li><a href="#tou-ads"             class="toc-link">8. Advertising</a></li>
+      <li><a href="#tou-third-party"     class="toc-link">9. Third-Party Services</a></li>
+      <li><a href="#tou-disclaimers"     class="toc-link">10. Disclaimers</a></li>
+      <li><a href="#tou-liability"       class="toc-link">11. Limitation of Liability</a></li>
+      <li><a href="#tou-termination"     class="toc-link">12. Termination</a></li>
+      <li><a href="#tou-changes"         class="toc-link">13. Changes to Terms</a></li>
+      <li><a href="#tou-governing-law"   class="toc-link">14. Governing Law</a></li>
+      <li><a href="#tou-contact"         class="toc-link">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- Article -->
+  <article class="pp-article">
+
+    <a href="/" class="pp-back">← Back to OdoGrid</a>
+
+    <!-- 1. Acceptance -->
+    <section class="pp-section fade-up" id="tou-acceptance" aria-labelledby="tou-acceptance-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">1</div>
+        <h2 id="tou-acceptance-h">Acceptance of Terms</h2>
+      </div>
+      <p>
+        By downloading, installing, or using OdoGrid ("Application"), you agree to comply with
+        and be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not
+        download, install, or use the Application.
+      </p>
+      <p>
+        These Terms apply to all users of the Application and constitute a legally binding agreement
+        between you and the OdoGrid developer ("we", "us", "our"). Use of the Application also
+        constitutes acceptance of our <a href="/privacy-policy/" style="color:var(--primary);">Privacy Policy</a>.
+      </p>
+    </section>
+
+    <!-- 2. Description of Service -->
+    <section class="pp-section fade-up" id="tou-description" aria-labelledby="tou-description-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">2</div>
+        <h2 id="tou-description-h">Description of Service</h2>
+      </div>
+      <p>
+        OdoGrid is a comprehensive, offline-first vehicle management application for Android. It
+        helps users track and maintain their vehicles with the following core capabilities:
+      </p>
+      <ul>
+        <li>Fuel and charging logs with efficiency calculations (MPG, L/100 km, km/L, kWh/km)</li>
+        <li>Maintenance records and smart date / odometer-based reminders</li>
+        <li>Expense tracking with category breakdown and cost-per-km insights</li>
+        <li>Business and personal trip logs for tax mileage deduction reports</li>
+        <li>AI receipt scanning (OCR) via on-device Google ML Kit</li>
+        <li>Multi-format export — PDF, Excel, JSON</li>
+        <li>Encrypted local storage with optional Google Drive and Dropbox cloud backup</li>
+        <li>Support for multiple vehicle types including petrol, diesel, hybrid, EV, motorcycle, truck, and more</li>
+      </ul>
+      <p>
+        Some features are gated behind a short rewarded ad or a one-time in-app purchase.
+        All core logging and tracking features are available at no cost.
+      </p>
+    </section>
+
+    <!-- 3. Eligibility -->
+    <section class="pp-section fade-up" id="tou-eligibility" aria-labelledby="tou-eligibility-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">3</div>
+        <h2 id="tou-eligibility-h">Eligibility</h2>
+      </div>
+      <p>
+        You must be at least 13 years of age to use the Application. By using OdoGrid, you
+        represent and warrant that you meet this minimum age requirement. If you are under 18,
+        you represent that you have your parent's or guardian's permission to use the Application.
+      </p>
+      <p>
+        OdoGrid does not require account registration. All data is stored locally on your device,
+        so there is no centralised account that can be suspended or deactivated by us.
+      </p>
+    </section>
+
+    <!-- 4. Your Data & Content -->
+    <section class="pp-section fade-up" id="tou-user-content" aria-labelledby="tou-user-content-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">4</div>
+        <h2 id="tou-user-content-h">Your Data &amp; Content</h2>
+      </div>
+      <p>
+        All vehicle records, fuel logs, maintenance entries, trip data, and expenses you enter into
+        OdoGrid are stored exclusively on your device inside an AES-256 hardware-backed encrypted
+        database. You retain full ownership of your data at all times.
+      </p>
+      <p>
+        We do not collect, access, or transmit your vehicle data to any server we operate.
+        Optional cloud backup sends your encrypted database directly to your own Google Drive or
+        Dropbox account — we have no access to those files.
+      </p>
+      <p>
+        You are solely responsible for ensuring the accuracy of data you enter and for maintaining
+        your own backups. We are not liable for any data loss resulting from device failure,
+        app uninstallation, or user error.
+      </p>
+    </section>
+
+    <!-- 5. Acceptable Use -->
+    <section class="pp-section fade-up" id="tou-acceptable-use" aria-labelledby="tou-acceptable-use-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">5</div>
+        <h2 id="tou-acceptable-use-h">Acceptable Use</h2>
+      </div>
+      <p>You agree not to use the Application to:</p>
+      <ul>
+        <li>Violate any applicable local, national, or international law or regulation</li>
+        <li>Attempt to decompile, reverse-engineer, disassemble, or otherwise derive the source code of the Application</li>
+        <li>Circumvent, disable, or otherwise interfere with security-related features of the Application</li>
+        <li>Use automated means to access or interact with the Application in a manner not intended by its design</li>
+        <li>Transmit any data that is unlawful, offensive, or harmful to third parties</li>
+        <li>Attempt to exploit or abuse any in-app purchase, rewarded ad, or premium entitlement mechanism</li>
+      </ul>
+      <div class="pp-warning-box">
+        <p>
+          ⚠️ Any attempt to bypass the rewarded ad or in-app purchase system to unlock premium
+          features without legitimate payment is a violation of these Terms and of Google Play
+          Developer Programme policies, and may result in removal of the Application from your
+          device at Google's discretion.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. Intellectual Property -->
+    <section class="pp-section fade-up" id="tou-ip" aria-labelledby="tou-ip-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">6</div>
+        <h2 id="tou-ip-h">Intellectual Property</h2>
+      </div>
+      <p>
+        The Application, including its source code, visual interfaces, graphics, design, feature
+        set, and all other elements, is owned by and proprietary to the OdoGrid developer. All
+        rights are reserved.
+      </p>
+      <p>
+        The OdoGrid name, logo, and brand assets may not be reproduced, distributed, or used in
+        any derivative work without prior written permission.
+      </p>
+      <p>
+        Third-party brand assets (Google Drive logo, Dropbox logo, Google Play badge, etc.)
+        remain the intellectual property of their respective owners and are used within the
+        Application under the terms of their respective brand guidelines.
+      </p>
+    </section>
+
+    <!-- 7. In-App Purchases -->
+    <section class="pp-section fade-up" id="tou-billing" aria-labelledby="tou-billing-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">7</div>
+        <h2 id="tou-billing-h">In-App Purchases</h2>
+      </div>
+      <p>
+        OdoGrid offers the following paid entitlements via Google Play Billing:
+      </p>
+      <ul>
+        <li><strong style="color:#fff;">Remove Ads</strong> — a one-time purchase that permanently removes all banner, rewarded, and interstitial advertisements from the Application.</li>
+        <li><strong style="color:#fff;">OdoGrid Premium</strong> — optional subscription plans (monthly / annual / lifetime) that unlock additional premium features as described in the Application.</li>
+      </ul>
+      <p>
+        All purchases are processed and managed by Google Play. By making a purchase, you agree to
+        Google Play's <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">Terms of Service</a>.
+      </p>
+      <p>
+        Subscription renewals are charged automatically 24 hours before the end of the current
+        billing period unless cancelled beforehand. You can manage or cancel subscriptions at any
+        time from your Google Play account settings. We do not offer refunds outside of Google
+        Play's standard refund policy.
+      </p>
+      <div class="pp-highlight-box">
+        <p>
+          💡 One-time purchases (Remove Ads, Lifetime Premium) are non-refundable after the
+          Google Play refund window has elapsed. Subscription purchases follow Google Play's
+          standard cancellation and refund policy.
+        </p>
+      </div>
+    </section>
+
+    <!-- 8. Advertising -->
+    <section class="pp-section fade-up" id="tou-ads" aria-labelledby="tou-ads-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">8</div>
+        <h2 id="tou-ads-h">Advertising</h2>
+      </div>
+      <p>
+        The free tier of OdoGrid displays ads via Google AdMob on Android. Three ad formats
+        are used: banner ads on list pages, rewarded ads gating premium export and AI analysis
+        features, and frequency-capped interstitial ads (at most once every three saves). If a
+        rewarded ad fails to load, the requested premium action proceeds immediately as a fallback —
+        you are never permanently blocked from a feature.
+      </p>
+      <p>
+        On first launch you are presented with a GDPR-compliant consent dialog. You may decline
+        personalised ads; the Application remains fully functional with non-personalised ads
+        instead. You can change your consent choice at any time from <strong style="color:#fff;">Settings → Privacy &amp; Data → Ad Preferences</strong>.
+      </p>
+      <p>
+        Purchasing the <strong style="color:#fff;">Remove Ads</strong> entitlement permanently
+        disables all advertising within the Application.
+      </p>
+    </section>
+
+    <!-- 9. Third-Party Services -->
+    <section class="pp-section fade-up" id="tou-third-party" aria-labelledby="tou-third-party-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">9</div>
+        <h2 id="tou-third-party-h">Third-Party Services</h2>
+      </div>
+      <p>
+        OdoGrid integrates with third-party services to deliver certain features. Your use of
+        those services is subject to their own terms and privacy policies:
+      </p>
+      <ul>
+        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">Google LLC</a> — AdMob advertising, Google Drive backup, ML Kit OCR, Firebase Crashlytics &amp; Analytics, Google Play Billing</li>
+        <li><a href="https://www.dropbox.com/terms" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">Dropbox, Inc.</a> — Optional encrypted cloud backup</li>
+        <li><a href="https://vpic.nhtsa.dot.gov/" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">NHTSA VPIC API</a> — VIN decoding (no personal data is sent; only the VIN string you choose to look up)</li>
+      </ul>
+      <p>
+        We are not responsible for the availability, reliability, or practices of any third-party
+        service. Discontinuation of a third-party service may affect related features in OdoGrid
+        without notice.
+      </p>
+    </section>
+
+    <!-- 10. Disclaimers -->
+    <section class="pp-section fade-up" id="tou-disclaimers" aria-labelledby="tou-disclaimers-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">10</div>
+        <h2 id="tou-disclaimers-h">Disclaimers</h2>
+      </div>
+      <p>
+        THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND,
+        EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMISSIBLE UNDER APPLICABLE LAW,
+        WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED
+        WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+      </p>
+      <p>
+        OdoGrid is a vehicle logging and tracking tool. It is not a substitute for professional
+        mechanical, financial, legal, or tax advice. Fuel efficiency calculations, cost estimates,
+        and tax report figures are for informational purposes only. Always verify important figures
+        independently before relying on them for financial or legal decisions.
+      </p>
+      <p>
+        We do not guarantee that the Application will be uninterrupted, error-free, or free from
+        viruses or other harmful components. You are responsible for maintaining appropriate
+        backups of your data.
+      </p>
+    </section>
+
+    <!-- 11. Limitation of Liability -->
+    <section class="pp-section fade-up" id="tou-liability" aria-labelledby="tou-liability-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">11</div>
+        <h2 id="tou-liability-h">Limitation of Liability</h2>
+      </div>
+      <p>
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE BE LIABLE FOR
+        ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF
+        DATA, REVENUE, OR PROFITS, WHETHER INCURRED DIRECTLY OR INDIRECTLY, ARISING FROM YOUR
+        USE OF OR INABILITY TO USE THE APPLICATION.
+      </p>
+      <p>
+        Our total aggregate liability to you for any claim arising out of or relating to these
+        Terms or the Application shall not exceed the amount you paid us (if any) in the twelve
+        months preceding the event giving rise to the claim.
+      </p>
+    </section>
+
+    <!-- 12. Termination -->
+    <section class="pp-section fade-up" id="tou-termination" aria-labelledby="tou-termination-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">12</div>
+        <h2 id="tou-termination-h">Termination</h2>
+      </div>
+      <p>
+        You may stop using the Application at any time by uninstalling it from your device. As
+        OdoGrid does not require an account, there is no deregistration step required.
+      </p>
+      <p>
+        We reserve the right to discontinue the Application or any of its features at any time
+        without notice. We will endeavour to provide reasonable advance notice of any significant
+        changes or discontinuation via the Google Play store listing.
+      </p>
+      <p>
+        Upon uninstalling the Application, all locally stored data is removed by Android's
+        standard app uninstall process. Any backups stored in Google Drive or Dropbox remain in
+        your personal cloud storage under your own control.
+      </p>
+    </section>
+
+    <!-- 13. Changes to Terms -->
+    <section class="pp-section fade-up" id="tou-changes" aria-labelledby="tou-changes-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">13</div>
+        <h2 id="tou-changes-h">Changes to These Terms</h2>
+      </div>
+      <p>
+        We reserve the right to update these Terms at any time. When we make material changes, we
+        will update the "Last updated" date at the top of this page and, where appropriate, notify
+        you via an in-app notice or Play Store update description.
+      </p>
+      <p>
+        Your continued use of the Application after any changes constitutes your acceptance of the
+        new Terms. If you do not agree to the revised Terms, please uninstall the Application.
+      </p>
+    </section>
+
+    <!-- 14. Governing Law -->
+    <section class="pp-section fade-up" id="tou-governing-law" aria-labelledby="tou-governing-law-h">
+      <div class="pp-section-header">
+        <div class="pp-section-num">14</div>
+        <h2 id="tou-governing-law-h">Governing Law</h2>
+      </div>
+      <p>
+        These Terms shall be governed by and construed in accordance with the laws of the
+        jurisdiction in which the developer is established, without regard to its conflict of
+        law provisions. Any disputes arising from these Terms shall be resolved in the courts
+        of that jurisdiction.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section class="pp-section fade-up" id="tou-contact" aria-labelledby="tou-contact-h">
+      <div class="pp-section-header">
+        <h2 id="tou-contact-h" style="margin:0;">Contact Us</h2>
+      </div>
+      <p>If you have any questions about these Terms, please reach out:</p>
+      <div class="pp-contact-box">
+        <p>
+          ✉️&nbsp; <a href="mailto:supportodogrid@gmail.com?subject=Terms of Use Enquiry — OdoGrid">supportodogrid@gmail.com</a>
+        </p>
+        <p style="margin-top:10px;font-size:13px;color:var(--text-secondary);">
+          Subject line: <em>Terms of Use Enquiry — OdoGrid</em><br>
+          We typically respond within 24–48 hours.
+        </p>
+      </div>
+    </section>
+
+  </article>
+</div><!-- end .pp-layout -->
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/assets/circle_splash.png" alt="OdoGrid logo" class="nav-logo-img" width="36" height="36" />
+          <strong style="font-size:17px;">OdoGrid</strong>
+        </div>
+        <p>Smart vehicle management for every driver.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.odogrid.app"
+           class="btn btn-ghost"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Get OdoGrid on Google Play"
+           style="width:fit-content;">
+          ▶&nbsp; Google Play
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul role="list">
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms-of-use/" aria-current="page">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul role="list">
+          <li><a href="mailto:supportodogrid@gmail.com">supportodogrid@gmail.com</a></li>
+          <li><a href="mailto:supportodogrid@gmail.com?subject=Bug Report — OdoGrid">Report a Bug</a></li>
+          <li><a href="mailto:supportodogrid@gmail.com?subject=Feature Request — OdoGrid">Request a Feature</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2026 OdoGrid. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-use/" aria-current="page">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
+<script>
+  // ── TOC active link highlight on scroll ──────────────────
+  (function initTocHighlight() {
+    const links    = document.querySelectorAll('.toc-link');
+    const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+
+    function onScroll() {
+      const scrollY  = window.scrollY + 120;
+      let   activeIdx = 0;
+      sections.forEach((s, i) => {
+        if (s && s.offsetTop <= scrollY) activeIdx = i;
+      });
+      links.forEach((l, i) => l.classList.toggle('active', i === activeIdx));
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+</body>
+</html>

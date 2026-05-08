@@ -11,10 +11,11 @@
   <meta name="theme-color" content="#4F8EF7" />
 
   <!-- Favicon setup -->
-  <link rel="icon" href="/assets/circle_splash.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/circle_splash.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/circle_splash.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/circle_splash.png" />
+  <link rel="icon" href="assets/circle_splash.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/circle_splash.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/circle_splash.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/circle_splash.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -142,6 +143,10 @@
             <div class="phone-card-mock" style="margin-top:8px;background:rgba(79,142,247,0.08);border-color:rgba(79,142,247,0.2)">
               <div class="phone-card-title" style="color:var(--success)">NEXT SERVICE DUE</div>
               <div style="font-size:12px;font-weight:600;">Oil Change · in 320 km</div>
+            </div>
+            <div class="phone-card-mock" style="margin-top:8px;background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2)">
+              <div class="phone-card-title" style="color:#EF4444;">⚠️ DOCUMENT EXPIRING</div>
+              <div style="font-size:12px;font-weight:600;">Insurance · 5 days left</div>
             </div>
             <div class="phone-card-mock" style="margin-top:8px;background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.2)">
               <div class="phone-card-title" style="color:#0EA5E9;">NET PROFIT THIS MONTH</div>
@@ -604,9 +609,12 @@
         <p class="cloud-card-tagline">"Backs up to your private appDataFolder — invisible to other apps"</p>
         <ul class="cloud-features" role="list">
           <li class="cloud-feature">ZIP compression &amp; auto-deduplication</li>
-          <li class="cloud-feature">Timestamp tracking</li>
+          <li class="cloud-feature">Timestamp tracking — last backup time &amp; file size displayed</li>
           <li class="cloud-feature">Dedicated backup and restore screen</li>
           <li class="cloud-feature">Configurable auto-backup — Daily, Weekly, or Monthly</li>
+          <li class="cloud-feature">Connected account shown with profile email &amp; initial avatar</li>
+          <li class="cloud-feature">Sign Out from the Sync page at any time — clears the session without deleting your local data</li>
+          <li class="cloud-feature">Restore replaces local data and restarts the app automatically</li>
         </ul>
       </div>
       <div class="card cloud-card fade-up" style="transition-delay:0.1s">
@@ -617,6 +625,8 @@
           <li class="cloud-feature">ZIP compression with timestamp history</li>
           <li class="cloud-feature">Merge restore — only adds missing records</li>
           <li class="cloud-feature">Configurable auto-backup — Daily, Weekly, or Monthly</li>
+          <li class="cloud-feature">Connected account shown with profile email &amp; initial avatar</li>
+          <li class="cloud-feature">Sign Out from the Sync page at any time — clears the session without deleting your local data</li>
           <li class="cloud-feature">Silently skips if not yet connected — never opens OAuth prompts in the background</li>
         </ul>
       </div>
@@ -646,14 +656,16 @@
       <span class="label-pill">DOCUMENT VAULT</span>
       <h3 id="docs-heading">Never Miss a Document Expiry Again</h3>
       <p>
-        Store all your vehicle documents in one place — Driving Licence, Insurance, PUC,
-        RC Book, Fitness Certificate, Road Tax, and more. Colour-coded expiry badges tell you
-        at a glance what's due soon. Push notifications arrive at 30, 7, and 1 day before expiry.
+        Store all your vehicle documents in one place. Colour-coded expiry badges tell you
+        at a glance what's due soon, and push notifications arrive at 30, 7, and 1 day before expiry
+        so you're never caught off-guard by a lapsed document.
       </p>
       <ul class="dive-bullets" role="list">
-        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Supports 7+ document types — fully customisable</li>
-        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Green / orange / red badges based on days remaining</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span><strong>5 built-in document types:</strong> Driving License, Insurance, PUC, Fitness Certificate, and a free-form <em>Other</em> type with a custom label — for Road Tax, RC Book, or anything else</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Sorted by urgency — expired and soonest-to-expire documents always appear first</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Green / orange / red expiry badges based on days remaining</li>
         <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Push notifications at 30 days, 7 days, and 1 day before expiry</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Dashboard alert card highlights your next expiring document at a glance</li>
         <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Per-vehicle document lists — separate records for every car or bike</li>
         <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>All documents stored locally, encrypted — never uploaded to any server</li>
       </ul>
@@ -1025,7 +1037,7 @@
           <li><a href="#contact">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/data-deletion/">Data Deletion</a></li>
-          <li><a href="#" aria-label="Terms of Use (coming soon)">Terms of Use</a></li>
+          <li><a href="/terms-of-use/">Terms of Use</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1045,7 +1057,7 @@
       <div class="footer-bottom-links">
         <a href="/privacy-policy/">Privacy Policy</a>
         <li><a href="/data-deletion/">Data Deletion</a></li>
-        <a href="#" aria-label="Terms of Use (coming soon)">Terms of Use</a>
+        <a href="/terms-of-use/">Terms of Use</a>
       </div>
     </div>
   </div>
