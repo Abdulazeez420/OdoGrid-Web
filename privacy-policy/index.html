@@ -364,7 +364,7 @@
     <span>OdoGrid</span>
   </div>
   <h1>Privacy Policy</h1>
-  <p class="pp-hero-meta">Last updated: April 2026 &nbsp;·&nbsp; Phase 15 — Pre-Launch Compliance, Contact Support &amp; Data Deletion</p>
+  <p class="pp-hero-meta">Last updated: June 2026 &nbsp;·&nbsp; OBD2 Diagnostics, GPS Speedometer, Trip Recorder &amp; Fleet Reports</p>
   <div class="pp-hero-badges">
     <span class="pp-hero-badge">🔒 AES-256 Encrypted</span>
     <span class="pp-hero-badge">📴 100% Offline</span>
@@ -455,6 +455,21 @@
             <tr>
               <td>App preferences (currency, theme)</td>
               <td>SharedPreferences (device)</td>
+              <td><span class="never-chip">Never</span></td>
+            </tr>
+            <tr>
+              <td>OBD2 diagnostic data (DTCs, sensor readings)</td>
+              <td>Local encrypted Isar DB</td>
+              <td><span class="manual-chip">Only if you export manually</span></td>
+            </tr>
+            <tr>
+              <td>Trip recorder telemetry (RPM, speed, distance via OBD2)</td>
+              <td>Local encrypted Isar DB</td>
+              <td><span class="manual-chip">Only if you export manually</span></td>
+            </tr>
+            <tr>
+              <td>GPS speedometer &amp; odometer data</td>
+              <td>Local SharedPreferences</td>
               <td><span class="never-chip">Never</span></td>
             </tr>
             <tr>
@@ -552,6 +567,30 @@
             Google ML Kit Text Recognition API. No images or scan results are ever uploaded.
           </p>
           <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy →</a></p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            Bluetooth &amp; OBD2
+            <span class="pp-service-tag">Local hardware only</span>
+          </div>
+          <p>
+            OBD2 diagnostics communicate directly with your ELM327 adapter via Bluetooth.
+            No diagnostic data is transmitted over the internet. You can use simulation mode
+            to explore the interface without any hardware connected.
+          </p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            GPS &amp; Location
+            <span class="pp-service-tag">On-device only</span>
+          </div>
+          <p>
+            The GPS speedometer and trip odometer use your device's location hardware for
+            speed, distance, and station tagging. Location data is processed in-memory and
+            is never uploaded. Speedometer background tracking can be disabled in Settings.
+          </p>
         </div>
 
       </div>

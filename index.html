@@ -91,7 +91,8 @@
       <p class="hero-sub">
         Your all-in-one offline-first co-pilot for vehicle costs.
         Log fuel, maintenance, trips, and expenses in seconds,
-        then export tax-ready reports with data encrypted on your device.
+        connect an OBD2 adapter for live diagnostics, record GPS trips,
+        and export tax-ready reports — all encrypted on your device.
       </p>
 
       <div class="hero-ctas">
@@ -208,14 +209,24 @@
         <p>Store Driving Licence, Insurance, PUC, Fitness Certificate and more. Colour-coded expiry badges and push notifications at 30 d, 7 d, and 1 d before expiry.</p>
       </article>
       <article class="card feature-card fade-up" style="transition-delay:0.7s">
-        <img src="assets/divestiture.png" class="feature-icon" alt="" aria-hidden="true" />
+        <img src="assets/backup.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>OBD2 Diagnostics</h4>
+        <p>Connect any ELM327 Bluetooth adapter. Read and clear diagnostic trouble codes (DTCs), view live sensor data (RPM, speed, coolant temp, fuel trim), and monitor engine performance in real time.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.8s">
+        <img src="assets/offline.png" class="feature-icon" alt="" aria-hidden="true" />
+        <h4>GPS Speedometer &amp; HUD</h4>
+        <p>Real-time GPS speed tracker with heads-up display (HUD) mode for night driving. Picture-in-Picture support, trip distance accumulation, and auto-start background tracking.</p>
+      </article>
+      <article class="card feature-card fade-up" style="transition-delay:0.9s">
+        <img src="assets/service-management.png" class="feature-icon" alt="" aria-hidden="true" />
         <h4>Shift Mode &amp; Net Profit</h4>
         <p>Start and end gig-economy shifts from the Dashboard. Log shift earnings alongside costs to see your real net profit per shift and per month.</p>
       </article>
-      <article class="card feature-card fade-up" style="transition-delay:0.8s">
+      <article class="card feature-card fade-up" style="transition-delay:1.0s">
         <img src="assets/tax.png" class="feature-icon" alt="" aria-hidden="true" />
-        <h4>Fleet Data &amp; Annual Reports</h4>
-        <p>Export and import cross-vehicle data as versioned JSON. Generate a Fleet Performance PDF with per-vehicle earnings, fuel cost, and net profit breakdown.</p>
+        <h4>Trip Recorder &amp; Fleet Reports</h4>
+        <p>Record trips with OBD2 telemetry (RPM, speed, distance) or standalone GPS. Auto-complete on adapter disconnect. Generate Fleet Performance PDFs with per-vehicle breakdowns.</p>
       </article>
     </div>
   </div>
@@ -417,6 +428,114 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     6C. DEEP-DIVE — OBD2 DIAGNOSTICS
+     ========================================================= -->
+<section class="deep-dive" aria-labelledby="obd2-heading">
+  <div class="dive-inner">
+    <div class="dive-content fade-up">
+      <span class="label-pill">OBD2 DIAGNOSTICS</span>
+      <h3 id="obd2-heading">Professional-Grade Diagnostics in Your Pocket</h3>
+      <p>
+        Plug in any ELM327 Bluetooth OBD2 adapter and unlock live engine data,
+        diagnostic trouble codes, and real-time sensor monitoring — no mechanic
+        appointment needed.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Read &amp; clear DTCs (diagnostic trouble codes) with plain-English descriptions</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Live data dashboard — RPM, speed, coolant temp, intake temp, fuel trim, throttle position</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Real-time PID graphs with freeze-frame capture for intermittent issues</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Bluetooth auto-reconnect with simulation mode for testing without hardware</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>VIN decoding, readiness monitors, and O2 sensor test results</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Configurable PID polling — adjust refresh rate for dash-cam style live gauges</li>
+      </ul>
+    </div>
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="font-size:13px;font-weight:700;margin-bottom:14px;">OBD2 Live Data</div>
+          <div class="mock-list">
+            <div class="mock-item">
+              <div class="mock-item-title">Engine RPM</div>
+              <div class="mock-item-sub" style="font-size:18px;font-weight:800;color:var(--primary);">842 rpm</div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Vehicle Speed</div>
+              <div class="mock-item-sub" style="font-size:18px;font-weight:800;">0 km/h</div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Coolant Temp</div>
+              <div class="mock-item-sub" style="font-size:18px;font-weight:800;color:var(--success);">92 °C</div>
+            </div>
+            <div class="mock-item">
+              <div class="mock-item-title">Intake Temp</div>
+              <div class="mock-item-sub" style="font-size:18px;font-weight:800;">34 °C</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:10px;">
+            <div style="font-size:10px;color:#EF4444;">⚠ DTC DETECTED</div>
+            <div style="font-size:11px;font-weight:600;">P0420 — Catalyst System Below Threshold</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     6D. DEEP-DIVE — SPEEDOMETER & TRIP RECORDER
+     ========================================================= -->
+<section class="deep-dive deep-dive--alt" aria-labelledby="speedo-heading">
+  <div class="dive-inner">
+    <div class="dive-phone fade-up" aria-hidden="true">
+      <div class="dive-phone-frame">
+        <div class="dive-phone-screen">
+          <div style="text-align:center;margin-bottom:16px;">
+            <div style="font-size:48px;font-weight:800;letter-spacing:-2px;">82</div>
+            <div style="font-size:14px;color:var(--text-secondary);">km/h</div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:24px;margin-bottom:16px;">
+            <div style="text-align:center;">
+              <div style="font-size:20px;font-weight:700;">12.4</div>
+              <div style="font-size:9px;color:var(--text-secondary);">TRIP km</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:20px;font-weight:700;">00:18</div>
+              <div style="font-size:9px;color:var(--text-secondary);">ELAPSED</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:12px;">
+            <div style="flex:1;height:36px;background:var(--success);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">▶ START</div>
+            <div style="flex:1;height:36px;background:rgba(239,68,68,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#EF4444;">⏹ STOP</div>
+          </div>
+          <div style="background:rgba(79,142,247,0.08);border-radius:10px;padding:10px;font-size:10px;color:var(--text-secondary);text-align:center;">
+            🛰️ GPS active · Background tracking ON
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dive-content fade-up">
+      <span class="label-pill">GPS SPEEDOMETER</span>
+      <h3 id="speedo-heading">Track Every Drive with Precision GPS</h3>
+      <p>
+        A full-featured GPS speedometer with HUD mirror mode for night driving,
+        trip distance recording, and background tracking that survives tab switches.
+        Record OBD2-powered trips with live RPM and speed telemetry.
+      </p>
+      <ul class="dive-bullets" role="list">
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Real-time GPS speed with low-pass filter for smooth readings</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>HUD mode — mirrors display for windshield reflection at night</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Picture-in-Picture (PiP) — speedometer floats over other apps</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>OBD2 Trip Recorder — records RPM, speed, distance with live telemetry</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Auto-stop on OBD2 disconnect — trip completes automatically</li>
+        <li class="dive-bullet"><span class="dive-bullet-check" aria-hidden="true">✓</span>Background service with odometer accumulation across app restarts</li>
+      </ul>
     </div>
   </div>
 </section>
