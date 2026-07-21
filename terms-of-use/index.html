@@ -283,7 +283,7 @@
     <span>OdoGrid</span>
   </div>
   <h1>Terms of Use</h1>
-  <p class="pp-hero-meta">Last updated: June 2026 &nbsp;·&nbsp; Effective immediately upon installation or use of the app</p>
+  <p class="pp-hero-meta">Last updated: July 2026 &nbsp;·&nbsp; Effective immediately upon installation or use of the app</p>
   <div class="pp-hero-badges">
     <span class="pp-hero-badge">📱 Android App</span>
     <span class="pp-hero-badge">🔒 Offline-First</span>
@@ -361,6 +361,7 @@
         <li>OBD2 diagnostics via ELM327 Bluetooth — live sensor data, DTC reading &amp; clearing, PID graphs</li>
         <li>GPS speedometer with HUD mode, Picture-in-Picture, and background odometer tracking</li>
         <li>OBD2 trip recorder with RPM, speed, and distance telemetry — auto-completes on adapter disconnect</li>
+        <li>Motion Sickness Stabilizer — an optional overlay for passengers to reduce motion sickness in moving vehicles (uses AccessibilityService API; strictly opt-in)</li>
         <li>Multi-format export — PDF, Excel, JSON</li>
         <li>Encrypted local storage with optional Google Drive and Dropbox cloud backup</li>
         <li>Support for multiple vehicle types including petrol, diesel, hybrid, EV, motorcycle, truck, and more</li>
@@ -528,6 +529,7 @@
         <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">Google LLC</a> — AdMob advertising, Google Drive backup, ML Kit OCR, Firebase Crashlytics &amp; Analytics, Google Play Billing</li>
         <li><a href="https://www.dropbox.com/terms" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">Dropbox, Inc.</a> — Optional encrypted cloud backup</li>
         <li><a href="https://vpic.nhtsa.dot.gov/" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">NHTSA VPIC API</a> — VIN decoding (no personal data is sent; only the VIN string you choose to look up)</li>
+        <li><a href="https://developer.android.com/reference/android/accessibilityservice/AccessibilityService" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">Android AccessibilityService API</a> — used only by the optional Motion Sickness Stabilizer to render a visual overlay; does not collect, store, or share any data</li>
       </ul>
       <p>
         We are not responsible for the availability, reliability, or practices of any third-party
@@ -560,6 +562,12 @@
         We do not guarantee the accuracy, completeness, or timeliness of sensor readings or
         DTC descriptions. GPS speed and distance accuracy depends on your device's hardware
         and satellite visibility. Do not rely on these tools for safety-critical decisions.
+      </p>
+      <p>
+        The Motion Sickness Stabilizer is an experimental comfort feature. It is not a medical
+        device and is not intended to diagnose, treat, cure, or prevent any medical condition.
+        If you experience persistent motion sickness, consult a healthcare professional.
+        Do not rely on this feature while driving or operating heavy machinery.
       </p>
       <p>
         We do not guarantee that the Application will be uninterrupted, error-free, or free from

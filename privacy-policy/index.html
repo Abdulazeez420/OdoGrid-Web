@@ -364,7 +364,7 @@
     <span>OdoGrid</span>
   </div>
   <h1>Privacy Policy</h1>
-  <p class="pp-hero-meta">Last updated: June 2026 &nbsp;·&nbsp; OBD2 Diagnostics, GPS Speedometer, Trip Recorder &amp; Fleet Reports</p>
+  <p class="pp-hero-meta">Last updated: July 2026 &nbsp;·&nbsp; OBD2 Diagnostics, GPS Speedometer, Trip Recorder &amp; Fleet Reports</p>
   <div class="pp-hero-badges">
     <span class="pp-hero-badge">🔒 AES-256 Encrypted</span>
     <span class="pp-hero-badge">📴 100% Offline</span>
@@ -473,9 +473,19 @@
               <td><span class="never-chip">Never</span></td>
             </tr>
             <tr>
-              <td>Location (GPS for station tagging)</td>
+              <td>Location (GPS for fuel station tagging)</td>
               <td>Never persisted</td>
-              <td><span class="never-chip">Never — in-memory only, discarded immediately</span></td>
+              <td><span class="never-chip">Never — in-memory only, discarded immediately after reverse-geocoding</span></td>
+            </tr>
+            <tr>
+              <td>Location (GPS shift odometer tracking)</td>
+              <td>Local SharedPreferences</td>
+              <td><span class="never-chip">Never — stored locally, used solely to calculate driven distance during active shifts</span></td>
+            </tr>
+            <tr>
+              <td>Background location (shift tracking)</td>
+              <td>Local SharedPreferences</td>
+              <td><span class="never-chip">Never — collected even when app is closed; used only for shift distance; opt-in only</span></td>
             </tr>
           </tbody>
         </table>
@@ -590,6 +600,30 @@
             The GPS speedometer and trip odometer use your device's location hardware for
             speed, distance, and station tagging. Location data is processed in-memory and
             is never uploaded. Speedometer background tracking can be disabled in Settings.
+          </p>
+          <p>
+            When you optionally enable GPS odometer tracking during an active shift, OdoGrid
+            collects your device's precise location — including in the background when the app
+            is closed or not in use. A prominent disclosure dialog is shown before this feature
+            is activated, and you must explicitly agree. This data is used solely to calculate
+            your driven distance, is stored locally on your device, and is never sent to any
+            server or shared with third parties.
+          </p>
+        </div>
+
+        <div class="pp-service">
+          <div class="pp-service-name">
+            AccessibilityService API
+            <span class="pp-service-tag">Optional · Opt-in</span>
+          </div>
+          <p>
+            OdoGrid includes an optional "Motion Sickness Stabilizer" feature for passengers
+            using their device in a moving vehicle. When manually enabled, this feature uses
+            the Android AccessibilityService API to draw a persistent visual reference overlay
+            across the screen. The AccessibilityService API is used strictly for rendering this
+            overlay — it does not collect, store, monitor, or share any personal, sensitive, or
+            screen data whatsoever. The permission is only active while the feature is turned on,
+            and you can disable it at any time.
           </p>
         </div>
 
